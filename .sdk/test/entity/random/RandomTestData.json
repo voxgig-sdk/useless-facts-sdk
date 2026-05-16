@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "random": {
+      "RANDOM00": {
+        "id": "RANDOM00",
+        "language": "s3d",
+        "permalink": "s3e",
+        "source": "s3f",
+        "source_url": "s40",
+        "text": "s41"
+      },
+      "RANDOM01": {
+        "id": "RANDOM01",
+        "language": "s79",
+        "permalink": "s7a",
+        "source": "s7b",
+        "source_url": "s7c",
+        "text": "s7d"
+      },
+      "RANDOM02": {
+        "id": "RANDOM02",
+        "language": "sb5",
+        "permalink": "sb6",
+        "source": "sb7",
+        "source_url": "sb8",
+        "text": "sb9"
+      }
+    }
+  },
+  "new": {
+    "random": {
+      "random_ref01": {
+        "language": "sf1",
+        "permalink": "sf2",
+        "source": "sf3",
+        "source_url": "sf4",
+        "text": "sf5"
+      }
+    }
+  }
+}

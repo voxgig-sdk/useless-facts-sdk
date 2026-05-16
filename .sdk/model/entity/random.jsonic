@@ -1,0 +1,98 @@
+# Entity: random
+
+main: kit: entity: random: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "permalink"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "text"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "random"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                example: "application/json"
+                kind: "header"
+                name: "accept"
+                orig: "accept"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "en"
+                kind: "query"
+                name: "language"
+                orig: "language"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v2/facts/random"
+          parts: [
+            "api"
+            "v2"
+            "facts"
+            "random"
+          ]
+          select: {
+            exist: [
+              "accept"
+              "language"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

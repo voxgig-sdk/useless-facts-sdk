@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://uselessfacts.jsph.pl/"
+      }
+      description: "HTTP API for useless facts. Provides random useless facts and today's useless fact with language and content-type customization options. APIv1 is deprecated."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://uselessfacts.jsph.pl"
+        }
+      ]
+      title: "Useless Facts API"
+      version: "2.0.0"
+    }
+  }
+}
+
+}

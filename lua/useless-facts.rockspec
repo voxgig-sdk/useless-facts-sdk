@@ -1,0 +1,22 @@
+package = "voxgig-sdk-useless-facts"
+version = "0.0-1"
+source = {
+  url = "git://github.com/voxgig-sdk/useless-facts-sdk.git"
+}
+description = {
+  summary = "UselessFacts SDK for Lua",
+  license = "MIT"
+}
+dependencies = {
+  "lua >= 5.3",
+  "dkjson >= 2.5",
+  "dkjson >= 2.5",
+}
+build = {
+  type = "builtin",
+  modules = {
+    ["useless-facts_sdk"] = "useless-facts_sdk.lua",
+    ["config"] = "config.lua",
+    ["features"] = "features.lua",
+  }
+}

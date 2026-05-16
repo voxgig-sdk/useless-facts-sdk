@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "today": {
+      "TODAY00": {
+        "id": "TODAY00",
+        "language": "s3d",
+        "permalink": "s3e",
+        "source": "s3f",
+        "source_url": "s40",
+        "text": "s41"
+      },
+      "TODAY01": {
+        "id": "TODAY01",
+        "language": "s79",
+        "permalink": "s7a",
+        "source": "s7b",
+        "source_url": "s7c",
+        "text": "s7d"
+      },
+      "TODAY02": {
+        "id": "TODAY02",
+        "language": "sb5",
+        "permalink": "sb6",
+        "source": "sb7",
+        "source_url": "sb8",
+        "text": "sb9"
+      }
+    }
+  },
+  "new": {
+    "today": {
+      "today_ref01": {
+        "language": "sf1",
+        "permalink": "sf2",
+        "source": "sf3",
+        "source_url": "sf4",
+        "text": "sf5"
+      }
+    }
+  }
+}

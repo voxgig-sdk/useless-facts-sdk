@@ -1,0 +1,187 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Useless Facts API",
+    "description": "HTTP API for useless facts. Provides random useless facts and today's useless fact with language and content-type customization options. APIv1 is deprecated.",
+    "version": "2.0.0",
+    "contact": {
+      "url": "https://uselessfacts.jsph.pl/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://uselessfacts.jsph.pl",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/v2/facts/random": {
+      "get": {
+        "summary": "Get random useless fact",
+        "description": "Returns a random useless fact. Supports language customization via query parameter and content-type negotiation via Accept header.",
+        "operationId": "getRandomFact",
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Language code for the fact",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en",
+                "de"
+              ],
+              "default": "en"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Response content type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "application/json",
+                "text/plain"
+              ],
+              "default": "application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a random useless fact",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the fact"
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "The useless fact text"
+                    },
+                    "source": {
+                      "type": "string",
+                      "description": "Source of the fact"
+                    },
+                    "source_url": {
+                      "type": "string",
+                      "description": "URL to the fact source"
+                    },
+                    "language": {
+                      "type": "string",
+                      "description": "Language code of the fact"
+                    },
+                    "permalink": {
+                      "type": "string",
+                      "description": "Permanent link to the fact"
+                    }
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "description": "The useless fact as plain text"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/facts/today": {
+      "get": {
+        "summary": "Get today's useless fact",
+        "description": "Returns today's useless fact. Supports language customization via query parameter and content-type negotiation via Accept header.",
+        "operationId": "getTodayFact",
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Language code for the fact",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en",
+                "de"
+              ],
+              "default": "en"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Response content type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "application/json",
+                "text/plain"
+              ],
+              "default": "application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with today's useless fact",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the fact"
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "The useless fact text"
+                    },
+                    "source": {
+                      "type": "string",
+                      "description": "Source of the fact"
+                    },
+                    "source_url": {
+                      "type": "string",
+                      "description": "URL to the fact source"
+                    },
+                    "language": {
+                      "type": "string",
+                      "description": "Language code of the fact"
+                    },
+                    "permalink": {
+                      "type": "string",
+                      "description": "Permanent link to the fact"
+                    }
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "description": "The useless fact as plain text"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "facts",
+      "description": "Operations related to useless facts"
+    }
+  ]
+}
