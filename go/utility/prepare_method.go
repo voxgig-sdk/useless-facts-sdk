@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/useless-facts-sdk/core"
+import "github.com/voxgig-sdk/useless-facts-sdk/go/core"
 
 func prepareMethodUtil(ctx *core.Context) string {
 	opname := ctx.Op.Name

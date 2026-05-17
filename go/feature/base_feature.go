@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/useless-facts-sdk/core"
+	"github.com/voxgig-sdk/useless-facts-sdk/go/core"
 )
 
 type BaseFeature struct {

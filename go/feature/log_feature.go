@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/useless-facts-sdk/core"
+	"github.com/voxgig-sdk/useless-facts-sdk/go/core"
 )
 
 type LogFeature struct {

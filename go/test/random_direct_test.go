@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/useless-facts-sdk"
-	"github.com/voxgig-sdk/useless-facts-sdk/core"
+	sdk "github.com/voxgig-sdk/useless-facts-sdk/go"
+	"github.com/voxgig-sdk/useless-facts-sdk/go/core"
 )
 
 func TestRandomDirect(t *testing.T) {

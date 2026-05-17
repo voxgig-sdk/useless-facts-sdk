@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/useless-facts-sdk/core"
+import "github.com/voxgig-sdk/useless-facts-sdk/go/core"
 
 func featureAddUtil(ctx *core.Context, f core.Feature) {
 	client := ctx.Client
