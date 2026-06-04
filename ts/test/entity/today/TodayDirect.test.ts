@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'USELESSFACTS_TEST_TODAY_ENTID': {},
     'USELESSFACTS_TEST_LIVE': 'FALSE',
-    'USELESSFACTS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.USELESSFACTS_TEST_LIVE
 
   if (live) {
     const client = new UselessFactsSDK({
-      apikey: env.USELESSFACTS_APIKEY,
     })
 
     let idmap: any = env['USELESSFACTS_TEST_TODAY_ENTID']

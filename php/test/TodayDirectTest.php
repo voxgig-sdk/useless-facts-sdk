@@ -67,14 +67,12 @@ function today_direct_setup($mockres)
     $env = Runner::env_override([
         "USELESSFACTS_TEST_TODAY_ENTID" => [],
         "USELESSFACTS_TEST_LIVE" => "FALSE",
-        "USELESSFACTS_APIKEY" => "NONE",
     ]);
 
     $live = $env["USELESSFACTS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["USELESSFACTS_APIKEY"],
         ];
         $client = new UselessFactsSDK($merged_opts);
         return [

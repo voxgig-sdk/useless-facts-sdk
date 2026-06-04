@@ -16,8 +16,23 @@ main: {
       ]
       title: "Useless Facts API"
       version: "2.0.0"
+      tagline: "Fetch random or daily useless facts in English or German via a tiny, no-auth HTTP API"
+      homepage: "https://uselessfacts.jsph.pl"
+      docs_url: "https://uselessfacts.jsph.pl"
+      about_md: `The Useless Facts API is a small, free HTTP service that serves random useless facts. It is run as a personal, non-commercial project by [jsph.pl](https://uselessfacts.jsph.pl).
+
+What you get from the API:
+- A random useless fact via \`GET /api/v2/facts/random\`
+- The fact of the day via \`GET /api/v2/facts/today\`
+- Language selection (English or German) via the \`?language=en\` or \`?language=de\` query parameter
+- Choice of response format (\`application/json\` or \`text/plain\`) selected through the \`Accept\` header
+
+Operational notes: the API requires no authentication and CORS is enabled, so it can be called directly from browsers. The legacy v1 endpoints are deprecated and now return \`308\` redirects to the v2 paths above; clients should follow and cache those redirects.`
+      entity_desc: {
+        random: "A randomly selected useless fact, served from `GET /api/v2/facts/random` and optionally localised via `?language=en|de`."
+        today: "The useless fact of the day, served from `GET /api/v2/facts/today` with the same language query parameter."
+      }
+      auth: false
     }
   }
-}
-
 }

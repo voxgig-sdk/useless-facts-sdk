@@ -95,7 +95,6 @@ def _today_basic_setup(extra):
         "USELESSFACTS_TEST_TODAY_ENTID": idmap,
         "USELESSFACTS_TEST_LIVE": "FALSE",
         "USELESSFACTS_TEST_EXPLAIN": "FALSE",
-        "USELESSFACTS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +105,6 @@ def _today_basic_setup(extra):
     if env.get("USELESSFACTS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("USELESSFACTS_APIKEY"),
             },
             extra or {},
         ])
