@@ -10,7 +10,7 @@ The PHP SDK for the UselessFacts API — an entity-oriented client using PHP con
 
 ## Install
 ```bash
-composer require voxgig/useless-facts-sdk
+composer require voxgig-sdk/useless-facts
 ```
 
 

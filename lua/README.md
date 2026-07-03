@@ -10,7 +10,7 @@ The Lua SDK for the UselessFacts API — an entity-oriented client using Lua con
 
 ## Install
 ```bash
-luarocks install useless-facts-sdk
+luarocks install voxgig-sdk-useless-facts
 ```
 
 If the module is not yet published, add the source directory to

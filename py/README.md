@@ -10,7 +10,7 @@ The Python SDK for the UselessFacts API — an entity-oriented client following 
 
 ## Install
 ```bash
-pip install useless-facts-sdk
+pip install voxgig-sdk-useless-facts
 ```
 
 Or install from source:

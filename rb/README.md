@@ -10,13 +10,13 @@ The Ruby SDK for the UselessFacts API — an entity-oriented client using idioma
 
 ## Install
 ```bash
-gem install useless-facts-sdk
+gem install voxgig-sdk-useless-facts
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "useless-facts-sdk"
+gem "voxgig-sdk-useless-facts"
 ```
 
 Then run:

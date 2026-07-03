@@ -10,7 +10,7 @@ The TypeScript SDK for the UselessFacts API — a type-safe, entity-oriented cli
 
 ## Install
 ```bash
-npm install useless-facts
+npm install @voxgig-sdk/useless-facts
 ```
 ## Tutorial: your first API call
 
