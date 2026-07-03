@@ -99,12 +99,14 @@ func todayDirectSetup(mockres any) *todayDirectSetupResult {
 	env := envOverride(map[string]any{
 		"USELESSFACTS_TEST_TODAY_ENTID": map[string]any{},
 		"USELESSFACTS_TEST_LIVE":    "FALSE",
+		"USELESSFACTS_APIKEY":       "NONE",
 	})
 
 	live := env["USELESSFACTS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["USELESSFACTS_APIKEY"],
 		}
 		client := sdk.NewUselessFactsSDK(mergedOpts)
 

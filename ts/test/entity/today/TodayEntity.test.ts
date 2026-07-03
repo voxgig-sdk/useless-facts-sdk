@@ -114,6 +114,7 @@ function basicSetup(extra?: any) {
     'USELESS_FACTS_TEST_TODAY_ENTID': idmap,
     'USELESS_FACTS_TEST_LIVE': 'FALSE',
     'USELESS_FACTS_TEST_EXPLAIN': 'FALSE',
+    'USELESS_FACTS_APIKEY': 'NONE',
   })
 
   idmap = env['USELESS_FACTS_TEST_TODAY_ENTID']
@@ -123,6 +124,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new UselessFactsSDK(merge([
       {
+        apikey: env.USELESS_FACTS_APIKEY,
       },
       extra
     ]))

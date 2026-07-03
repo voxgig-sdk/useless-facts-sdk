@@ -59,12 +59,14 @@ def _today_direct_setup(mockres):
     env = runner.env_override({
         "USELESSFACTS_TEST_TODAY_ENTID": {},
         "USELESSFACTS_TEST_LIVE": "FALSE",
+        "USELESSFACTS_APIKEY": "NONE",
     })
 
     live = env.get("USELESSFACTS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("USELESSFACTS_APIKEY"),
         }
         client = UselessFactsSDK(merged_opts)
         return {

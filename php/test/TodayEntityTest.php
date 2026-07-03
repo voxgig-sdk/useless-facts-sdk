@@ -89,6 +89,7 @@ function today_basic_setup($extra)
         "USELESSFACTS_TEST_TODAY_ENTID" => $idmap,
         "USELESSFACTS_TEST_LIVE" => "FALSE",
         "USELESSFACTS_TEST_EXPLAIN" => "FALSE",
+        "USELESSFACTS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -100,6 +101,7 @@ function today_basic_setup($extra)
     if ($env["USELESSFACTS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["USELESSFACTS_APIKEY"],
             ],
             $extra ?? [],
         ]);

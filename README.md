@@ -1,20 +1,8 @@
 # UselessFacts SDK
 
-Fetch random or daily useless facts in English or German via a tiny, no-auth HTTP API
+Useless Facts API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Useless Facts API
-
-The Useless Facts API is a small, free HTTP service that serves random useless facts. It is run as a personal, non-commercial project by [jsph.pl](https://uselessfacts.jsph.pl).
-
-What you get from the API:
-- A random useless fact via `GET /api/v2/facts/random`
-- The fact of the day via `GET /api/v2/facts/today`
-- Language selection (English or German) via the `?language=en` or `?language=de` query parameter
-- Choice of response format (`application/json` or `text/plain`) selected through the `Accept` header
-
-Operational notes: the API requires no authentication and CORS is enabled, so it can be called directly from browsers. The legacy v1 endpoints are deprecated and now return `308` redirects to the v2 paths above; clients should follow and cache those redirects.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install useless-facts-sdk
 luarocks install useless-facts-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { UselessFactsSDK } from 'useless-facts'
 
-const client = new UselessFactsSDK({})
+const client = new UselessFactsSDK({
+  apikey: process.env.USELESS-FACTS_APIKEY,
+})
 
+// Load random data
+const random = await client.Random().load({})
+console.log(random.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Random** | A randomly selected useless fact, served from `GET /api/v2/facts/random` and optionally localised via `?language=en|de`. | `/api/v2/facts/random` |
-| **Today** | The useless fact of the day, served from `GET /api/v2/facts/today` with the same language query parameter. | `/api/v2/facts/today` |
+| **Random** |  | `/api/v2/facts/random` |
+| **Today** |  | `/api/v2/facts/today` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,15 +101,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from uselessfacts_sdk import UselessFactsSDK
 
-client = UselessFactsSDK({})
+client = UselessFactsSDK({
+    "apikey": os.environ.get("USELESS-FACTS_APIKEY"),
+})
 
 
 # Load a specific random
-random, err = client.Random(None).load(
-    {"id": "example_id"}, None
-)
+random, err = client.Random().load({"id": "example_id"})
+print(random)
 ```
 
 ### PHP
@@ -126,13 +120,14 @@ random, err = client.Random(None).load(
 <?php
 require_once 'uselessfacts_sdk.php';
 
-$client = new UselessFactsSDK([]);
+$client = new UselessFactsSDK([
+    "apikey" => getenv("USELESS-FACTS_APIKEY"),
+]);
 
 
 // Load a specific random
-[$random, $err] = $client->Random(null)->load(
-    ["id" => "example_id"], null
-);
+[$random, $err] = $client->Random()->load(["id" => "example_id"]);
+print_r($random);
 ```
 
 ### Golang
@@ -140,8 +135,13 @@ $client = new UselessFactsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/useless-facts-sdk/go"
 
-client := sdk.NewUselessFactsSDK(map[string]any{})
+client := sdk.NewUselessFactsSDK(map[string]any{
+    "apikey": os.Getenv("USELESS-FACTS_APIKEY"),
+})
 
+// Load random data
+random, err := client.Random(nil).Load(map[string]any{}, nil)
+fmt.Println(random)
 ```
 
 ### Ruby
@@ -149,13 +149,14 @@ client := sdk.NewUselessFactsSDK(map[string]any{})
 ```ruby
 require_relative "UselessFacts_sdk"
 
-client = UselessFactsSDK.new({})
+client = UselessFactsSDK.new({
+  "apikey" => ENV["USELESS-FACTS_APIKEY"],
+})
 
 
 # Load a specific random
-random, err = client.Random(nil).load(
-  { "id" => "example_id" }, nil
-)
+random, err = client.Random().load({ "id" => "example_id" })
+puts random
 ```
 
 ### Lua
@@ -163,13 +164,14 @@ random, err = client.Random(nil).load(
 ```lua
 local sdk = require("useless-facts_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("USELESS-FACTS_APIKEY"),
+})
 
 
 -- Load a specific random
-local random, err = client:Random(nil):load(
-  { id = "example_id" }, nil
-)
+local random, err = client:Random():load({ id = "example_id" })
+print(random)
 ```
 
 ## Unit testing in offline mode
@@ -188,25 +190,21 @@ const result = await client.Random().load({ id: 'test01' })
 ### Python
 
 ```python
-client = UselessFactsSDK.test(None, None)
-result, err = client.Random(None).load(
-    {"id": "test01"}, None
-)
+client = UselessFactsSDK.test()
+result, err = client.Random().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = UselessFactsSDK::test(null, null);
-[$result, $err] = $client->Random(null)->load(
-    ["id" => "test01"], null
-);
+$client = UselessFactsSDK::test();
+[$result, $err] = $client->Random()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Random(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -215,19 +213,15 @@ result, err := client.Random(nil).Load(
 ### Ruby
 
 ```ruby
-client = UselessFactsSDK.test(nil, nil)
-result, err = client.Random(nil).load(
-  { "id" => "test01" }, nil
-)
+client = UselessFactsSDK.test
+result, err = client.Random().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Random(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Random():load({ id = "test01" })
 ```
 
 ## How it works
@@ -331,10 +325,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Useless Facts API
-
-- Upstream: [https://uselessfacts.jsph.pl](https://uselessfacts.jsph.pl)
 
 ---
 

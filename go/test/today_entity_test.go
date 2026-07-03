@@ -123,6 +123,7 @@ func todayBasicSetup(extra map[string]any) *entityTestSetup {
 		"USELESSFACTS_TEST_TODAY_ENTID": idmap,
 		"USELESSFACTS_TEST_LIVE":      "FALSE",
 		"USELESSFACTS_TEST_EXPLAIN":   "FALSE",
+		"USELESSFACTS_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["USELESSFACTS_TEST_TODAY_ENTID"])
@@ -133,6 +134,7 @@ func todayBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["USELESSFACTS_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["USELESSFACTS_APIKEY"],
 			},
 			extra,
 		})
