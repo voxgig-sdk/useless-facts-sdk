@@ -44,8 +44,7 @@ class TodayEntityTest < Minitest::Test
     today_ref01_match_dt0 = {
       "id" => today_ref01_data["id"],
     }
-    today_ref01_data_dt0_loaded, err = today_ref01_ent.load(today_ref01_match_dt0, nil)
-    assert_nil err
+    today_ref01_data_dt0_loaded = today_ref01_ent.load(today_ref01_match_dt0, nil)
     today_ref01_data_dt0_load_result = Helpers.to_map(today_ref01_data_dt0_loaded)
     assert !today_ref01_data_dt0_load_result.nil?
     assert_equal today_ref01_data_dt0_load_result["id"], today_ref01_data["id"]
@@ -86,7 +85,6 @@ def today_basic_setup(extra)
     "USELESSFACTS_TEST_TODAY_ENTID" => idmap,
     "USELESSFACTS_TEST_LIVE" => "FALSE",
     "USELESSFACTS_TEST_EXPLAIN" => "FALSE",
-    "USELESSFACTS_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -98,7 +96,6 @@ def today_basic_setup(extra)
   if env["USELESSFACTS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["USELESSFACTS_APIKEY"],
       },
       extra || {},
     ])

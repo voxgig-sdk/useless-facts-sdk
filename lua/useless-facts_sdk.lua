@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:random():list() / client:random():load({ id = ... })
+function UselessFactsSDK:random(data)
+  local EntityMod = require("entity.random_entity")
+  if data == nil then
+    if self._random == nil then
+      self._random = EntityMod.new(self, nil)
+    end
+    return self._random
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:random() instead.
 function UselessFactsSDK:Random(data)
   local EntityMod = require("entity.random_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:today():list() / client:today():load({ id = ... })
+function UselessFactsSDK:today(data)
+  local EntityMod = require("entity.today_entity")
+  if data == nil then
+    if self._today == nil then
+      self._today = EntityMod.new(self, nil)
+    end
+    return self._today
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:today() instead.
 function UselessFactsSDK:Today(data)
   local EntityMod = require("entity.today_entity")
   return EntityMod.new(self, data)

@@ -3,6 +3,8 @@
 import { RandomEntity } from './entity/RandomEntity'
 import { TodayEntity } from './entity/TodayEntity'
 
+export type * from './UselessFactsTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class UselessFactsSDK {
 
 
 
+  _random?: RandomEntity
+
+  // Idiomatic facade: `client.random.list()` / `client.random.load({ id })`.
+  get random(): RandomEntity {
+    return (this._random ??= new RandomEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.random` instead. */
   Random(data?: any) {
     const self = this
     return new RandomEntity(self,data)
   }
 
 
+  _today?: TodayEntity
+
+  // Idiomatic facade: `client.today.list()` / `client.today.load({ id })`.
+  get today(): TodayEntity {
+    return (this._today ??= new TodayEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.today` instead. */
   Today(data?: any) {
     const self = this
     return new TodayEntity(self,data)

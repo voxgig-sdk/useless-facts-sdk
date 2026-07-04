@@ -62,14 +62,12 @@ function random_direct_setup(mockres)
   local env = runner.env_override({
     ["USELESSFACTS_TEST_RANDOM_ENTID"] = {},
     ["USELESSFACTS_TEST_LIVE"] = "FALSE",
-    ["USELESSFACTS_APIKEY"] = "NONE",
   })
 
   local live = env["USELESSFACTS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["USELESSFACTS_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

@@ -15,9 +15,6 @@ module UselessFactsConfig
       },
       "options" => {
         "base" => "https://uselessfacts.jsph.pl",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

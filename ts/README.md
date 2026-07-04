@@ -9,9 +9,12 @@ The TypeScript SDK for the UselessFacts API — a type-safe, entity-oriented cli
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/useless-facts
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/useless-facts-sdk/releases](https://github.com/voxgig-sdk/useless-facts-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { UselessFactsSDK } from 'useless-facts'
+import { UselessFactsSDK } from '@voxgig-sdk/useless-facts'
 
-const client = new UselessFactsSDK({
-  apikey: process.env.USELESS-FACTS_APIKEY,
-})
+const client = new UselessFactsSDK()
 ```
 
 ### 3. Load a random
 
 ```ts
-const result = await client.Random().load({ id: 'example_id' })
+const result = await client.random.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = UselessFactsSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.random.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new UselessFactsSDK({ apikey: '...' })
+const client = new UselessFactsSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.random
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new UselessFactsSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new UselessFactsSDK({
 Create a `.env.local` file at the project root:
 
 ```
-USELESS-FACTS_TEST_LIVE=TRUE
-USELESS-FACTS_APIKEY=<your-key>
+USELESS_FACTS_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new UselessFactsSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new UselessFactsSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -287,7 +284,7 @@ API path: `/api/v2/facts/today`
 
 ### Random
 
-Create an instance: `const random = client.Random()`
+Create an instance: `const random = client.random`
 
 #### Operations
 
@@ -309,13 +306,13 @@ Create an instance: `const random = client.Random()`
 #### Example: Load
 
 ```ts
-const random = await client.Random().load({ id: 'random_id' })
+const random = await client.random.load({ id: 'random_id' })
 ```
 
 
 ### Today
 
-Create an instance: `const today = client.Today()`
+Create an instance: `const today = client.today`
 
 #### Operations
 
@@ -337,7 +334,7 @@ Create an instance: `const today = client.Today()`
 #### Example: Load
 
 ```ts
-const today = await client.Today().load({ id: 'today_id' })
+const today = await client.today.load({ id: 'today_id' })
 ```
 
 
@@ -398,7 +395,7 @@ useless-facts/
 Import the SDK from the package root:
 
 ```ts
-import { UselessFactsSDK } from 'useless-facts'
+import { UselessFactsSDK } from '@voxgig-sdk/useless-facts'
 ```
 
 ### Entity state
@@ -408,11 +405,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const random = client.random
+await random.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// random.data() now returns the loaded random data
+// random.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

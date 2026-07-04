@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## RandomEntity
 
 ```lua
-local random = client:Random(nil)
+local random = client:random(nil)
 ```
 
 ### Fields
@@ -109,7 +108,7 @@ local random = client:Random(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Random():load({ id = "random_id" })
+local result, err = client:random():load({ id = "random_id" })
 ```
 
 ### Common Methods
@@ -145,7 +144,7 @@ Return the entity name.
 ## TodayEntity
 
 ```lua
-local today = client:Today(nil)
+local today = client:today(nil)
 ```
 
 ### Fields
@@ -166,7 +165,7 @@ local today = client:Today(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Today():load({ id = "today_id" })
+local result, err = client:today():load({ id = "today_id" })
 ```
 
 ### Common Methods

@@ -51,8 +51,7 @@ class TestTodayEntity:
         today_ref01_match_dt0 = {
             "id": today_ref01_data["id"],
         }
-        today_ref01_data_dt0_loaded, err = today_ref01_ent.load(today_ref01_match_dt0, None)
-        assert err is None
+        today_ref01_data_dt0_loaded = today_ref01_ent.load(today_ref01_match_dt0, None)
         today_ref01_data_dt0_load_result = helpers.to_map(today_ref01_data_dt0_loaded)
         assert today_ref01_data_dt0_load_result is not None
         assert today_ref01_data_dt0_load_result["id"] == today_ref01_data["id"]
@@ -95,7 +94,6 @@ def _today_basic_setup(extra):
         "USELESSFACTS_TEST_TODAY_ENTID": idmap,
         "USELESSFACTS_TEST_LIVE": "FALSE",
         "USELESSFACTS_TEST_EXPLAIN": "FALSE",
-        "USELESSFACTS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _today_basic_setup(extra):
     if env.get("USELESSFACTS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("USELESSFACTS_APIKEY"),
             },
             extra or {},
         ])

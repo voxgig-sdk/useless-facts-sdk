@@ -245,11 +245,17 @@ func (sdk *UselessFactsSDK) Direct(fetchargs map[string]any) (map[string]any, er
 }
 
 
+// Random returns a Random entity bound to this client.
+// Idiomatic usage: client.Random(nil).List(nil, nil) or
+// client.Random(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UselessFactsSDK) Random(data map[string]any) UselessFactsEntity {
 	return NewRandomEntityFunc(sdk, data)
 }
 
 
+// Today returns a Today entity bound to this client.
+// Idiomatic usage: client.Today(nil).List(nil, nil) or
+// client.Today(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UselessFactsSDK) Today(data map[string]any) UselessFactsEntity {
 	return NewTodayEntityFunc(sdk, data)
 }
