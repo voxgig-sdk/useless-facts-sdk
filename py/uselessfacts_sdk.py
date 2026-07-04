@@ -220,41 +220,21 @@ class UselessFactsSDK:
         }
 
 
-    @property
-    def random(self):
-        """Idiomatic facade: client.random.list() / client.random.load({"id": ...})."""
-        from entity.random_entity import RandomEntity
-        cached = getattr(self, "_random", None)
-        if cached is None:
-            cached = RandomEntity(self, None)
-            self._random = cached
-        return cached
-
-    def Random(self, data=None):
-        # Deprecated: use client.random instead.
+    def Random(self, data=None) -> "RandomEntity":
+        """Entity factory: client.Random().list({}) / client.Random().load({"id": ...})."""
         from entity.random_entity import RandomEntity
         return RandomEntity(self, data)
 
 
-    @property
-    def today(self):
-        """Idiomatic facade: client.today.list() / client.today.load({"id": ...})."""
-        from entity.today_entity import TodayEntity
-        cached = getattr(self, "_today", None)
-        if cached is None:
-            cached = TodayEntity(self, None)
-            self._today = cached
-        return cached
-
-    def Today(self, data=None):
-        # Deprecated: use client.today instead.
+    def Today(self, data=None) -> "TodayEntity":
+        """Entity factory: client.Today().list({}) / client.Today().load({"id": ...})."""
         from entity.today_entity import TodayEntity
         return TodayEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "UselessFactsSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class UselessFactsSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.random_entity import RandomEntity
+    from entity.today_entity import TodayEntity

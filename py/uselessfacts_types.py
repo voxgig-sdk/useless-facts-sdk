@@ -4,49 +4,49 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Random:
-    id: Optional[str] = None
-    language: Optional[str] = None
-    permalink: Optional[str] = None
-    source: Optional[str] = None
-    source_url: Optional[str] = None
-    text: Optional[str] = None
+class Random(TypedDict, total=False):
+    id: str
+    language: str
+    permalink: str
+    source: str
+    source_url: str
+    text: str
 
 
-@dataclass
-class RandomLoadMatch:
-    id: Optional[str] = None
-    language: Optional[str] = None
-    permalink: Optional[str] = None
-    source: Optional[str] = None
-    source_url: Optional[str] = None
-    text: Optional[str] = None
+class RandomLoadMatch(TypedDict, total=False):
+    id: str
+    language: str
+    permalink: str
+    source: str
+    source_url: str
+    text: str
 
 
-@dataclass
-class Today:
-    id: Optional[str] = None
-    language: Optional[str] = None
-    permalink: Optional[str] = None
-    source: Optional[str] = None
-    source_url: Optional[str] = None
-    text: Optional[str] = None
+class Today(TypedDict, total=False):
+    id: str
+    language: str
+    permalink: str
+    source: str
+    source_url: str
+    text: str
 
 
-@dataclass
-class TodayLoadMatch:
-    id: Optional[str] = None
-    language: Optional[str] = None
-    permalink: Optional[str] = None
-    source: Optional[str] = None
-    source_url: Optional[str] = None
-    text: Optional[str] = None
-
+class TodayLoadMatch(TypedDict, total=False):
+    id: str
+    language: str
+    permalink: str
+    source: str
+    source_url: str
+    text: str

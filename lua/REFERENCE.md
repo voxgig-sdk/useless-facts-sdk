@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## RandomEntity
 
 ```lua
-local random = client:random(nil)
+local random = client:Random(nil)
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ local random = client:random(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:random():load({ id = "random_id" })
+local result, err = client:Random():load({ id = "random_id" })
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## TodayEntity
 
 ```lua
-local today = client:today(nil)
+local today = client:Today(nil)
 ```
 
 ### Fields
@@ -165,7 +165,7 @@ local today = client:today(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:today():load({ id = "today_id" })
+local result, err = client:Today():load({ id = "today_id" })
 ```
 
 ### Common Methods

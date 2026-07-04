@@ -33,10 +33,12 @@ client = UselessFactsSDK()
 
 ### 3. Load a random
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.random.load({"id": "example_id"})
-    print(result)
+    random = client.Random().load({"id": "example_id"})
+    print(random)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = UselessFactsSDK.test()
 
-result = client.random.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+random = client.Random().load({"id": "test01"})
+# random contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -239,7 +242,7 @@ API path: `/api/v2/facts/today`
 
 ### Random
 
-Create an instance: `const random = client.random`
+Create an instance: `random = client.Random()`
 
 #### Operations
 
@@ -260,14 +263,14 @@ Create an instance: `const random = client.random`
 
 #### Example: Load
 
-```ts
-const random = await client.random.load({ id: 'random_id' })
+```python
+random = client.Random().load({"id": "random_id"})
 ```
 
 
 ### Today
 
-Create an instance: `const today = client.today`
+Create an instance: `today = client.Today()`
 
 #### Operations
 
@@ -288,8 +291,8 @@ Create an instance: `const today = client.today`
 
 #### Example: Load
 
-```ts
-const today = await client.today.load({ id: 'today_id' })
+```python
+today = client.Today().load({"id": "today_id"})
 ```
 
 
@@ -363,7 +366,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-random = client.random
+random = client.Random()
 random.load({"id": "example_id"})
 
 # random.data_get() now returns the loaded random data

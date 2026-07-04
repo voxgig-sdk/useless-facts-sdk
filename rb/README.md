@@ -32,8 +32,9 @@ client = UselessFactsSDK.new
 
 ```ruby
 begin
-  result = client.random.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Random record (raises on error).
+  random = client.Random.load({ "id" => "example_id" })
+  puts random
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = UselessFactsSDK.test
+client = UselessFactsSDK.test({
+  "entity" => { "random" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.random.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+random = client.Random.load({ "id" => "test01" })
+puts random
 ```
 
 ### Use a custom fetch function
@@ -239,7 +244,7 @@ API path: `/api/v2/facts/today`
 
 ### Random
 
-Create an instance: `const random = client.random`
+Create an instance: `random = client.Random`
 
 #### Operations
 
@@ -260,14 +265,15 @@ Create an instance: `const random = client.random`
 
 #### Example: Load
 
-```ts
-const random = await client.random.load({ id: 'random_id' })
+```ruby
+# load returns the bare Random record (raises on error).
+random = client.Random.load({ "id" => "random_id" })
 ```
 
 
 ### Today
 
-Create an instance: `const today = client.today`
+Create an instance: `today = client.Today`
 
 #### Operations
 
@@ -288,8 +294,9 @@ Create an instance: `const today = client.today`
 
 #### Example: Load
 
-```ts
-const today = await client.today.load({ id: 'today_id' })
+```ruby
+# load returns the bare Today record (raises on error).
+today = client.Today.load({ "id" => "today_id" })
 ```
 
 
@@ -364,7 +371,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-random = client.random
+random = client.Random
 random.load({ "id" => "example_id" })
 
 # random.data_get now returns the loaded random data

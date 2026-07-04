@@ -121,7 +121,7 @@ Alias for `UselessFactsSDK.test()`.
 ## RandomEntity
 
 ```ts
-const random = client.random
+const random = client.Random()
 ```
 
 ### Fields
@@ -142,7 +142,7 @@ const random = client.random
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.random.load({ id: 'random_id' })
+const result = await client.Random().load({ id: 'random_id' })
 ```
 
 ### Common Methods
@@ -176,7 +176,7 @@ Return a copy of the entity options.
 ## TodayEntity
 
 ```ts
-const today = client.today
+const today = client.Today()
 ```
 
 ### Fields
@@ -197,7 +197,7 @@ const today = client.today
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.today.load({ id: 'today_id' })
+const result = await client.Today().load({ id: 'today_id' })
 ```
 
 ### Common Methods

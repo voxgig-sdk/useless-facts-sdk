@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## RandomEntity
 
 ```php
-$random = $client->random();
+$random = $client->Random();
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ $random = $client->random();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->random()->load(["id" => "random_id"]);
+$result = $client->Random()->load(["id" => "random_id"]);
 ```
 
 ### Common Methods
@@ -146,7 +146,7 @@ Return the entity name.
 ## TodayEntity
 
 ```php
-$today = $client->today();
+$today = $client->Today();
 ```
 
 ### Fields
@@ -167,7 +167,7 @@ $today = $client->today();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->today()->load(["id" => "today_id"]);
+$result = $client->Today()->load(["id" => "today_id"]);
 ```
 
 ### Common Methods

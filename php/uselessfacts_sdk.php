@@ -233,10 +233,10 @@ class UselessFactsSDK
 
     private $_random = null;
 
-    // Idiomatic facade: $client->random()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Random() (PHP method
-    // names are case-insensitive).
-    public function random($data = null)
+    // Canonical facade: $client->Random()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->random()
+    // resolves here too.
+    public function Random($data = null)
     {
         require_once __DIR__ . '/entity/random_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class UselessFactsSDK
 
     private $_today = null;
 
-    // Idiomatic facade: $client->today()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Today() (PHP method
-    // names are case-insensitive).
-    public function today($data = null)
+    // Canonical facade: $client->Today()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->today()
+    // resolves here too.
+    public function Today($data = null)
     {
         require_once __DIR__ . '/entity/today_entity.php';
         if ($data === null) {

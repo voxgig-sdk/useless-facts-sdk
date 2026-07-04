@@ -26,9 +26,9 @@ import { UselessFactsSDK } from '@voxgig-sdk/useless-facts'
 
 const client = new UselessFactsSDK()
 
-// Load random data
-const random = await client.random.load({})
-console.log(random.data)
+// Load random data (returns a Random)
+const random = await client.Random().load()
+console.log(random)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,8 +85,8 @@ from uselessfacts_sdk import UselessFactsSDK
 client = UselessFactsSDK()
 
 
-# Load a specific random
-random = client.random.load({"id": "example_id"})
+# Load a specific random (returns the record, raises on error)
+random = client.Random().load({"id": "example_id"})
 print(random)
 ```
 
@@ -99,8 +99,8 @@ require_once 'uselessfacts_sdk.php';
 $client = new UselessFactsSDK();
 
 
-// Load a specific random
-$random = $client->random()->load(["id" => "example_id"]);
+// Load a specific random (returns the bare record; throws on error)
+$random = $client->Random()->load(["id" => "example_id"]);
 print_r($random);
 ```
 
@@ -124,8 +124,8 @@ require_relative "UselessFacts_sdk"
 client = UselessFactsSDK.new
 
 
-# Load a specific random
-random = client.random.load({ "id" => "example_id" })
+# Load a specific random (returns the bare record; raises on error)
+random = client.Random.load({ "id" => "example_id" })
 puts random
 ```
 
@@ -138,7 +138,7 @@ local client = sdk.new()
 
 
 -- Load a specific random
-local random, err = client:random():load({ id = "example_id" })
+local random, err = client:Random():load({ id = "example_id" })
 print(random)
 ```
 
@@ -151,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = UselessFactsSDK.test()
-const result = await client.random.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const random = await client.Random().load({ id: 'test01' })
+// random is a bare Random populated with mock data
+console.log(random)
 ```
 
 ### Python
 
 ```python
 client = UselessFactsSDK.test()
-result = client.random.load({"id": "test01"})
+random = client.Random().load({"id": "test01"})
+print(random)
 ```
 
 ### PHP
 
 ```php
-$client = UselessFactsSDK::test();
-$result = $client->random()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = UselessFactsSDK::test([
+    "entity" => ["random" => ["test01" => ["id" => "test01"]]],
+]);
+$random = $client->Random()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -181,15 +186,18 @@ result, err := client.Random(nil).Load(
 ### Ruby
 
 ```ruby
-client = UselessFactsSDK.test
-result = client.random.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = UselessFactsSDK.test({
+  "entity" => { "random" => { "test01" => { "id" => "test01" } } },
+})
+random = client.Random.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:random():load({ id = "test01" })
+local result, err = client:Random():load({ id = "test01" })
 ```
 
 ## How it works
@@ -237,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

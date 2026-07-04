@@ -208,26 +208,14 @@ class UselessFactsSDK
   end
 
 
-  # Idiomatic facade: client.random.list / client.random.load({ "id" => ... })
-  def random
-    require_relative 'entity/random_entity'
-    @random ||= RandomEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.random instead.
+  # Canonical facade: client.Random.list / client.Random.load({ "id" => ... })
   def Random(data = nil)
     require_relative 'entity/random_entity'
     RandomEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.today.list / client.today.load({ "id" => ... })
-  def today
-    require_relative 'entity/today_entity'
-    @today ||= TodayEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.today instead.
+  # Canonical facade: client.Today.list / client.Today.load({ "id" => ... })
   def Today(data = nil)
     require_relative 'entity/today_entity'
     TodayEntity.new(self, data)

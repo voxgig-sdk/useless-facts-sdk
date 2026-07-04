@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## RandomEntity
 
 ```ruby
-random = client.random
+random = client.Random
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ random = client.random
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.random.load({ "id" => "random_id" })
+result = client.Random.load({ "id" => "random_id" })
 ```
 
 ### Common Methods
@@ -147,7 +147,7 @@ Return the entity name.
 ## TodayEntity
 
 ```ruby
-today = client.today
+today = client.Today
 ```
 
 ### Fields
@@ -168,7 +168,7 @@ today = client.today
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.today.load({ "id" => "today_id" })
+result = client.Today.load({ "id" => "today_id" })
 ```
 
 ### Common Methods
