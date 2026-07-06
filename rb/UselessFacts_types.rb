@@ -37,10 +37,10 @@ Random = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Random#load (any subset of Random fields).
+# Request payload for Random#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] language
 #   @return [String, nil]
@@ -95,10 +95,10 @@ Today = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Today#load (any subset of Today fields).
+# Request payload for Today#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] language
 #   @return [String, nil]

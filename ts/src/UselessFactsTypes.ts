@@ -14,7 +14,14 @@ export interface Random {
   text?: string
 }
 
-export type RandomLoadMatch = Partial<Random>
+export interface RandomLoadMatch {
+  id: string
+  language?: string
+  permalink?: string
+  source?: string
+  source_url?: string
+  text?: string
+}
 
 export interface Today {
   id?: string
@@ -25,5 +32,12 @@ export interface Today {
   text?: string
 }
 
-export type TodayLoadMatch = Partial<Today>
+export interface TodayLoadMatch {
+  id: string
+  language?: string
+  permalink?: string
+  source?: string
+  source_url?: string
+  text?: string
+}
 

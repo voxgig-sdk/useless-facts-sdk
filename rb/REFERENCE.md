@@ -8,7 +8,7 @@ Complete API reference for the UselessFacts Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'useless-facts_sdk'
+require_relative 'UselessFacts_sdk'
 
 client = UselessFactsSDK.new(options)
 ```
@@ -97,12 +97,12 @@ random = client.Random
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `permalink` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `text` | ``$STRING`` | No |  |
+| `id` | `String` | No |  |
+| `language` | `String` | No |  |
+| `permalink` | `String` | No |  |
+| `source` | `String` | No |  |
+| `source_url` | `String` | No |  |
+| `text` | `String` | No |  |
 
 ### Operations
 
@@ -154,12 +154,12 @@ today = client.Today
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `permalink` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `text` | ``$STRING`` | No |  |
+| `id` | `String` | No |  |
+| `language` | `String` | No |  |
+| `permalink` | `String` | No |  |
+| `source` | `String` | No |  |
+| `source_url` | `String` | No |  |
+| `text` | `String` | No |  |
 
 ### Operations
 

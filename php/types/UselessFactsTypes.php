@@ -23,10 +23,10 @@ class Random
     public ?string $text = null;
 }
 
-/** Match filter for Random#load (any subset of Random fields). */
+/** Request payload for Random#load. */
 class RandomLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
     public ?string $language = null;
     public ?string $permalink = null;
     public ?string $source = null;
@@ -45,10 +45,10 @@ class Today
     public ?string $text = null;
 }
 
-/** Match filter for Today#load (any subset of Today fields). */
+/** Request payload for Today#load. */
 class TodayLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
     public ?string $language = null;
     public ?string $permalink = null;
     public ?string $source = null;

@@ -67,10 +67,12 @@ class TodayEntity
   
   # Load a single Today.
   #
-  # @param reqmatch [TodayLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param reqmatch [TodayLoadMatch, Hash, nil] match criteria (id/query fields);
+  #   optional — an entity with no id-like key loads with no match (nil is treated
+  #   as an empty match, so client.Today.load works with no args).
   # @param ctrl [Object, nil] optional per-call control
   # @return [Today, Hash] the loaded Today; raises UselessFactsError on failure
-  def load(reqmatch, ctrl = nil)
+  def load(reqmatch = nil, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
       "opname" => "load",

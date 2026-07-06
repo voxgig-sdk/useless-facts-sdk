@@ -101,12 +101,12 @@ random := client.Random(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `permalink` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `text` | ``$STRING`` | No |  |
+| `id` | `string` | No |  |
+| `language` | `string` | No |  |
+| `permalink` | `string` | No |  |
+| `source` | `string` | No |  |
+| `source_url` | `string` | No |  |
+| `text` | `string` | No |  |
 
 ### Operations
 
@@ -152,12 +152,12 @@ today := client.Today(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `permalink` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `text` | ``$STRING`` | No |  |
+| `id` | `string` | No |  |
+| `language` | `string` | No |  |
+| `permalink` | `string` | No |  |
+| `source` | `string` | No |  |
+| `source_url` | `string` | No |  |
+| `text` | `string` | No |  |
 
 ### Operations
 

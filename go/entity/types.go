@@ -18,10 +18,9 @@ type Random struct {
 	Text *string `json:"text,omitempty"`
 }
 
-// RandomLoadMatch mirrors the random fields as an all-optional match
-// filter (Go analog of Partial<Random>).
+// RandomLoadMatch is the typed request payload for Random.LoadTyped.
 type RandomLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Language *string `json:"language,omitempty"`
 	Permalink *string `json:"permalink,omitempty"`
 	Source *string `json:"source,omitempty"`
@@ -39,10 +38,9 @@ type Today struct {
 	Text *string `json:"text,omitempty"`
 }
 
-// TodayLoadMatch mirrors the today fields as an all-optional match
-// filter (Go analog of Partial<Today>).
+// TodayLoadMatch is the typed request payload for Today.LoadTyped.
 type TodayLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Language *string `json:"language,omitempty"`
 	Permalink *string `json:"permalink,omitempty"`
 	Source *string `json:"source,omitempty"`

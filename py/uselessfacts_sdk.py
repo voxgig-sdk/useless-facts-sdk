@@ -221,13 +221,13 @@ class UselessFactsSDK:
 
 
     def Random(self, data=None) -> "RandomEntity":
-        """Entity factory: client.Random().list({}) / client.Random().load({"id": ...})."""
+        """Entity factory: client.Random().list() / client.Random().load({"id": ...})."""
         from entity.random_entity import RandomEntity
         return RandomEntity(self, data)
 
 
     def Today(self, data=None) -> "TodayEntity":
-        """Entity factory: client.Today().list({}) / client.Today().load({"id": ...})."""
+        """Entity factory: client.Today().list() / client.Today().load({"id": ...})."""
         from entity.today_entity import TodayEntity
         return TodayEntity(self, data)
 

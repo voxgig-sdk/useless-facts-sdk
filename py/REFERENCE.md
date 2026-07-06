@@ -8,7 +8,7 @@ Complete API reference for the UselessFacts Python SDK.
 ### Constructor
 
 ```python
-from useless-facts_sdk import UselessFactsSDK
+from uselessfacts_sdk import UselessFactsSDK
 
 client = UselessFactsSDK(options)
 ```
@@ -91,12 +91,12 @@ random = client.Random()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `permalink` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `text` | ``$STRING`` | No |  |
+| `id` | `str` | No |  |
+| `language` | `str` | No |  |
+| `permalink` | `str` | No |  |
+| `source` | `str` | No |  |
+| `source_url` | `str` | No |  |
+| `text` | `str` | No |  |
 
 ### Operations
 
@@ -147,12 +147,12 @@ today = client.Today()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `language` | ``$STRING`` | No |  |
-| `permalink` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `text` | ``$STRING`` | No |  |
+| `id` | `str` | No |  |
+| `language` | `str` | No |  |
+| `permalink` | `str` | No |  |
+| `source` | `str` | No |  |
+| `source_url` | `str` | No |  |
+| `text` | `str` | No |  |
 
 ### Operations
 
