@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -394,14 +391,17 @@
           "url": "https://uselessfacts.jsph.pl/"
         },
         "description": "HTTP API for useless facts. Provides random useless facts and today's useless fact with language and content-type customization options. APIv1 is deprecated.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://uselessfacts.jsph.pl"
           }
         ],
+        "summary": "HTTP API for useless facts.",
         "title": "Useless Facts API",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "website": "https://uselessfacts.jsph.pl"
       },
       "option": {},
       "target": {
@@ -454,6 +454,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -504,6 +507,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

@@ -15,9 +15,9 @@ main: {
           url: "https://uselessfacts.jsph.pl"
         }
       ]
+      summary: "HTTP API for useless facts."
       title: "Useless Facts API"
       version: "2.0.0"
+      website: "https://uselessfacts.jsph.pl"
     }
   }
-}
-

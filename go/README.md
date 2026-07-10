@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single random — the value is the loaded record.
-    random, err := client.Random(nil).Load(map[string]any{"id": "example"}, nil)
+    random, err := client.Random(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
