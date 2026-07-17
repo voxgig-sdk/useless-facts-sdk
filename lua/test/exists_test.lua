@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- UselessFacts SDK exists test
 
 local sdk = require("useless-facts_sdk")
 
