@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# UselessFacts SDK exists test
 
 import pytest
 from uselessfacts_sdk import UselessFactsSDK

@@ -23,8 +23,8 @@ module UselessFactsTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("USELESSFACTS_TEST_LIVE")
-    override = getenv("USELESSFACTS_TEST_OVERRIDE")
+    live = getenv("USELESS_FACTS_TEST_LIVE")
+    override = getenv("USELESS_FACTS_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module UselessFactsTestRunner
       end
     end
 
-    explain = getenv("USELESSFACTS_TEST_EXPLAIN")
-    m["USELESSFACTS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("USELESS_FACTS_TEST_EXPLAIN")
+    m["USELESS_FACTS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

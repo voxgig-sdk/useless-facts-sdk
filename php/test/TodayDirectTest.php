@@ -65,11 +65,11 @@ function today_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "USELESSFACTS_TEST_TODAY_ENTID" => [],
-        "USELESSFACTS_TEST_LIVE" => "FALSE",
+        "USELESS_FACTS_TEST_TODAY_ENTID" => [],
+        "USELESS_FACTS_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["USELESSFACTS_TEST_LIVE"] === "TRUE";
+    $live = $env["USELESS_FACTS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

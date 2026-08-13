@@ -26,8 +26,8 @@ import {
 describe('RandomEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when USELESSFACTS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('USELESSFACTS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when USELESS_FACTS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('USELESS_FACTS_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = UselessFactsSDK.test()
@@ -63,7 +63,7 @@ describe('RandomEntity', async () => {
     const random_ref01_ent = client.Random()
     const random_ref01_match_dt0: any = {}
     random_ref01_match_dt0.id = random_ref01_data.id
-    const random_ref01_data_dt0 = await random_ref01_ent.load(random_ref01_match_dt0)
+    const random_ref01_data_dt0 = (await random_ref01_ent.load(random_ref01_match_dt0)).data()
     assert(random_ref01_data_dt0.id === random_ref01_data.id)
 
 

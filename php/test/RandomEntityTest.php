@@ -33,7 +33,7 @@ class RandomEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set USELESSFACTS_TEST_RANDOM_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set USELESS_FACTS_TEST_RANDOM_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -52,7 +52,7 @@ class RandomEntityTest extends TestCase
             "id" => $random_ref01_data["id"],
         ];
         $random_ref01_data_dt0_loaded = $random_ref01_ent->load($random_ref01_match_dt0, null);
-        $random_ref01_data_dt0_load_result = Helpers::to_map($random_ref01_data_dt0_loaded);
+        $random_ref01_data_dt0_load_result = Helpers::to_map(is_object($random_ref01_data_dt0_loaded) && method_exists($random_ref01_data_dt0_loaded, 'data_get') ? $random_ref01_data_dt0_loaded->data_get() : $random_ref01_data_dt0_loaded);
         $this->assertNotNull($random_ref01_data_dt0_load_result);
         $this->assertEquals($random_ref01_data_dt0_load_result["id"], $random_ref01_data["id"]);
 
@@ -81,22 +81,22 @@ function random_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("USELESSFACTS_TEST_RANDOM_ENTID");
+    $entid_env_raw = getenv("USELESS_FACTS_TEST_RANDOM_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "USELESSFACTS_TEST_RANDOM_ENTID" => $idmap,
-        "USELESSFACTS_TEST_LIVE" => "FALSE",
-        "USELESSFACTS_TEST_EXPLAIN" => "FALSE",
+        "USELESS_FACTS_TEST_RANDOM_ENTID" => $idmap,
+        "USELESS_FACTS_TEST_LIVE" => "FALSE",
+        "USELESS_FACTS_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["USELESSFACTS_TEST_RANDOM_ENTID"]);
+        $env["USELESS_FACTS_TEST_RANDOM_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["USELESSFACTS_TEST_LIVE"] === "TRUE") {
+    if ($env["USELESS_FACTS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -105,13 +105,13 @@ function random_basic_setup($extra)
         $client = new UselessFactsSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["USELESSFACTS_TEST_LIVE"] === "TRUE";
+    $live = $env["USELESS_FACTS_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["USELESSFACTS_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["USELESS_FACTS_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

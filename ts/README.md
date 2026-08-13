@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = UselessFactsSDK.test()
 
 const random = await client.Random().load({ id: 'test01' })
-// random is a bare entity populated with mock response data
+// random is the entity, populated with mock response data
+// — call random.data() for the record itself
 console.log(random)
 ```
 

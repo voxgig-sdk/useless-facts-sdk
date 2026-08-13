@@ -29,7 +29,7 @@ describe("TodayEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set USELESSFACTS_TEST_TODAY_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set USELESS_FACTS_TEST_TODAY_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -49,7 +49,7 @@ describe("TodayEntity", function()
     }
     local today_ref01_data_dt0_loaded, err = today_ref01_ent:load(today_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local today_ref01_data_dt0_load_result = helpers.to_map(today_ref01_data_dt0_loaded)
+    local today_ref01_data_dt0_load_result = helpers.to_map(type(today_ref01_data_dt0_loaded) == 'table' and today_ref01_data_dt0_loaded.data_get and today_ref01_data_dt0_loaded:data_get() or today_ref01_data_dt0_loaded)
     assert.is_not_nil(today_ref01_data_dt0_load_result)
     assert.are.equal(today_ref01_data_dt0_load_result["id"], today_ref01_data["id"])
 
@@ -88,22 +88,22 @@ function today_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("USELESSFACTS_TEST_TODAY_ENTID")
+  local entid_env_raw = os.getenv("USELESS_FACTS_TEST_TODAY_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["USELESSFACTS_TEST_TODAY_ENTID"] = idmap,
-    ["USELESSFACTS_TEST_LIVE"] = "FALSE",
-    ["USELESSFACTS_TEST_EXPLAIN"] = "FALSE",
+    ["USELESS_FACTS_TEST_TODAY_ENTID"] = idmap,
+    ["USELESS_FACTS_TEST_LIVE"] = "FALSE",
+    ["USELESS_FACTS_TEST_EXPLAIN"] = "FALSE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["USELESSFACTS_TEST_TODAY_ENTID"])
+    env["USELESS_FACTS_TEST_TODAY_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
 
-  if env["USELESSFACTS_TEST_LIVE"] == "TRUE" then
+  if env["USELESS_FACTS_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
       },
@@ -112,13 +112,13 @@ function today_basic_setup(extra)
     client = sdk.new(helpers.to_map(merged_opts))
   end
 
-  local live = env["USELESSFACTS_TEST_LIVE"] == "TRUE"
+  local live = env["USELESS_FACTS_TEST_LIVE"] == "TRUE"
   return {
     client = client,
     data = entity_data,
     idmap = idmap_resolved,
     env = env,
-    explain = env["USELESSFACTS_TEST_EXPLAIN"] == "TRUE",
+    explain = env["USELESS_FACTS_TEST_EXPLAIN"] == "TRUE",
     live = live,
     synthetic_only = live and not idmap_overridden,
     now = os.time() * 1000,

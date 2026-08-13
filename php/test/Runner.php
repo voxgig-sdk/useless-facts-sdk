@@ -43,8 +43,8 @@ class UselessFactsTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('USELESSFACTS_TEST_LIVE');
-        $override = self::getenv('USELESSFACTS_TEST_OVERRIDE');
+        $live = self::getenv('USELESS_FACTS_TEST_LIVE');
+        $override = self::getenv('USELESS_FACTS_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class UselessFactsTestRunner
             }
         }
 
-        $explain = self::getenv('USELESSFACTS_TEST_EXPLAIN');
+        $explain = self::getenv('USELESS_FACTS_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['USELESSFACTS_TEST_EXPLAIN'] = $explain;
+            $m['USELESS_FACTS_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -16,11 +16,11 @@
 import pytest
 
 from uselessfacts_sdk import UselessFactsSDK
-from core.error import UselessFactsError
-from core.result import UselessFactsResult
-from core.response import UselessFactsResponse
-from core.spec import UselessFactsSpec
-from feature.base_feature import UselessFactsBaseFeature
+from uselessfacts_sdk.core.error import UselessFactsError
+from uselessfacts_sdk.core.result import UselessFactsResult
+from uselessfacts_sdk.core.response import UselessFactsResponse
+from uselessfacts_sdk.core.spec import UselessFactsSpec
+from uselessfacts_sdk.feature.base_feature import UselessFactsBaseFeature
 
 
 def _client():

@@ -100,6 +100,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/facts/random",
                 ["parts"] = {
@@ -205,6 +206,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/facts/today",
                 ["parts"] = {

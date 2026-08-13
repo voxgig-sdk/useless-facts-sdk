@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import UselessFactsControl
-from core.error import UselessFactsError
-from core.result import UselessFactsResult
-from core.spec import UselessFactsSpec
+from uselessfacts_sdk.config import make_config
+from uselessfacts_sdk.features import _make_feature
+from uselessfacts_sdk.core.control import UselessFactsControl
+from uselessfacts_sdk.core.error import UselessFactsError
+from uselessfacts_sdk.core.result import UselessFactsResult
+from uselessfacts_sdk.core.spec import UselessFactsSpec
 
 
 # True when this SDK was generated with the named feature.

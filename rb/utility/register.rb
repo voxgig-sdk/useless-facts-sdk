@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ UselessFactsUtility.registrar = ->(u) {
   u.prepare_params = UselessFactsUtilities::PrepareParams
   u.prepare_path = UselessFactsUtilities::PreparePath
   u.prepare_query = UselessFactsUtilities::PrepareQuery
+  u.graphql_body = UselessFactsUtilities::GraphqlBody
+  u.graphql_errors = UselessFactsUtilities::GraphqlErrors
   u.result_basic = UselessFactsUtilities::ResultBasic
   u.result_body = UselessFactsUtilities::ResultBody
   u.result_headers = UselessFactsUtilities::ResultHeaders

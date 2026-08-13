@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'UselessFacts',
   }
 
 
@@ -132,6 +132,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/facts/random",
               "parts": [
@@ -237,6 +238,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/facts/today",
               "parts": [

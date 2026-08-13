@@ -106,6 +106,7 @@ class UselessFactsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v2/facts/random',
                   'parts' => [
@@ -211,6 +212,7 @@ class UselessFactsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v2/facts/today',
                   'parts' => [

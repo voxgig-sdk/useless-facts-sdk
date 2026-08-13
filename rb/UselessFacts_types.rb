@@ -27,7 +27,7 @@
 #
 # @!attribute [rw] text
 #   @return [String, nil]
-Random = Struct.new(
+RandomType = Struct.new(
   :id,
   :language,
   :permalink,

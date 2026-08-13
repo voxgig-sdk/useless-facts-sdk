@@ -45,6 +45,11 @@ class UselessFactsMakeError
         $sdk_err = new UselessFactsError('', $msg, $ctx);
         $sdk_err->result = ($ctx->utility->clean)($ctx, $result);
         $sdk_err->spec = ($ctx->utility->clean)($ctx, $spec);
+
+        // Promote the HTTP status to the top level, so a consumer can branch
+        // on `err->status` / `err->notFound()` rather than reaching into
+        // `err->result`.
+        $sdk_err->status = null === $result->status ? -1 : (int)$result->status;
         if ($err instanceof UselessFactsError) {
             $sdk_err->sdk_code = $err->sdk_code;
         }
