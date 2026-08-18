@@ -15,7 +15,7 @@ require_relative "../UselessFacts_sdk"
 module UselessFactsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = UselessFactsConfig.make_config["feature"]
+    f = UselessFactsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

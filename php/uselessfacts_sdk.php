@@ -40,7 +40,7 @@ class UselessFactsSDK
         $utility = new UselessFactsUtility();
         $this->_utility = $utility;
 
-        $config = UselessFactsConfig::make_config();
+        $config = UselessFactsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from uselessfacts_sdk.config import make_config
+from uselessfacts_sdk.config import shared_config
 from uselessfacts_sdk.features import _make_feature
 from uselessfacts_sdk.core.control import UselessFactsControl
 from uselessfacts_sdk.core.error import UselessFactsError
@@ -24,7 +24,7 @@ from uselessfacts_sdk.core.spec import UselessFactsSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
