@@ -1,6 +1,6 @@
-# Entity: random
+# Entity: today
 
-main: kit: entity: random: {
+main: kit: entity: today: {
 
   alias: field: {}
 
@@ -8,31 +8,37 @@ main: kit: entity: random: {
     {
       name: "id"
       req: false
+      short: "Unique identifier for the fact"
       type: "`$STRING`"
     }
     {
       name: "language"
       req: false
+      short: "Language code of the fact"
       type: "`$STRING`"
     }
     {
       name: "permalink"
       req: false
+      short: "Permanent link to the fact"
       type: "`$STRING`"
     }
     {
       name: "source"
       req: false
+      short: "Source of the fact"
       type: "`$STRING`"
     }
     {
       name: "source_url"
       req: false
+      short: "URL to the fact source"
       type: "`$STRING`"
     }
     {
       name: "text"
       req: false
+      short: "The useless fact text"
       type: "`$STRING`"
     }
   ]
@@ -42,7 +48,7 @@ main: kit: entity: random: {
     name: "id"
   }
 
-  name: "random"
+  name: "today"
   op: {
     load: {
       name: "load"
@@ -71,12 +77,12 @@ main: kit: entity: random: {
             ]
           }
           method: "GET"
-          orig: "/api/v2/facts/random"
+          orig: "/api/v2/facts/today"
           parts: [
             "api"
             "v2"
             "facts"
-            "random"
+            "today"
           ]
           select: {
             exist: [

@@ -97,12 +97,12 @@ random = client.Random
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | No |  |
-| `language` | `String` | No |  |
-| `permalink` | `String` | No |  |
-| `source` | `String` | No |  |
-| `source_url` | `String` | No |  |
-| `text` | `String` | No |  |
+| `id` | `String` | No | Unique identifier for the fact |
+| `language` | `String` | No | Language code of the fact |
+| `permalink` | `String` | No | Permanent link to the fact |
+| `source` | `String` | No | Source of the fact |
+| `source_url` | `String` | No | URL to the fact source |
+| `text` | `String` | No | The useless fact text |
 
 ### Operations
 
@@ -154,12 +154,12 @@ today = client.Today
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | No |  |
-| `language` | `String` | No |  |
-| `permalink` | `String` | No |  |
-| `source` | `String` | No |  |
-| `source_url` | `String` | No |  |
-| `text` | `String` | No |  |
+| `id` | `String` | No | Unique identifier for the fact |
+| `language` | `String` | No | Language code of the fact |
+| `permalink` | `String` | No | Permanent link to the fact |
+| `source` | `String` | No | Source of the fact |
+| `source_url` | `String` | No | URL to the fact source |
+| `text` | `String` | No | The useless fact text |
 
 ### Operations
 

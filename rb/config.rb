@@ -19,6 +19,9 @@ module UselessFactsConfig
     {
       "main" => {
         "name" => "UselessFacts",
+        "slug" => "useless-facts",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,26 +45,32 @@ module UselessFactsConfig
           "fields" => [
             {
               "name" => "id",
+              "short" => "Unique identifier for the fact",
               "type" => "`$STRING`",
             },
             {
               "name" => "language",
+              "short" => "Language code of the fact",
               "type" => "`$STRING`",
             },
             {
               "name" => "permalink",
+              "short" => "Permanent link to the fact",
               "type" => "`$STRING`",
             },
             {
               "name" => "source",
+              "short" => "Source of the fact",
               "type" => "`$STRING`",
             },
             {
               "name" => "source_url",
+              "short" => "URL to the fact source",
               "type" => "`$STRING`",
             },
             {
               "name" => "text",
+              "short" => "The useless fact text",
               "type" => "`$STRING`",
             },
           ],
@@ -123,26 +132,32 @@ module UselessFactsConfig
           "fields" => [
             {
               "name" => "id",
+              "short" => "Unique identifier for the fact",
               "type" => "`$STRING`",
             },
             {
               "name" => "language",
+              "short" => "Language code of the fact",
               "type" => "`$STRING`",
             },
             {
               "name" => "permalink",
+              "short" => "Permanent link to the fact",
               "type" => "`$STRING`",
             },
             {
               "name" => "source",
+              "short" => "Source of the fact",
               "type" => "`$STRING`",
             },
             {
               "name" => "source_url",
+              "short" => "URL to the fact source",
               "type" => "`$STRING`",
             },
             {
               "name" => "text",
+              "short" => "The useless fact text",
               "type" => "`$STRING`",
             },
           ],

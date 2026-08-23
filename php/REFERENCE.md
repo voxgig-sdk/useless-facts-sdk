@@ -96,12 +96,12 @@ $random = $client->Random();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `language` | `string` | No |  |
-| `permalink` | `string` | No |  |
-| `source` | `string` | No |  |
-| `source_url` | `string` | No |  |
-| `text` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the fact |
+| `language` | `string` | No | Language code of the fact |
+| `permalink` | `string` | No | Permanent link to the fact |
+| `source` | `string` | No | Source of the fact |
+| `source_url` | `string` | No | URL to the fact source |
+| `text` | `string` | No | The useless fact text |
 
 ### Operations
 
@@ -153,12 +153,12 @@ $today = $client->Today();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `language` | `string` | No |  |
-| `permalink` | `string` | No |  |
-| `source` | `string` | No |  |
-| `source_url` | `string` | No |  |
-| `text` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the fact |
+| `language` | `string` | No | Language code of the fact |
+| `permalink` | `string` | No | Permanent link to the fact |
+| `source` | `string` | No | Source of the fact |
+| `source_url` | `string` | No | URL to the fact source |
+| `text` | `string` | No | The useless fact text |
 
 ### Operations
 

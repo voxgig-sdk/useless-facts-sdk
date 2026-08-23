@@ -242,12 +242,12 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `language` |  |
-| `permalink` |  |
-| `source` |  |
-| `source_url` |  |
-| `text` |  |
+| `id` | Unique identifier for the fact |
+| `language` | Language code of the fact |
+| `permalink` | Permanent link to the fact |
+| `source` | Source of the fact |
+| `source_url` | URL to the fact source |
+| `text` | The useless fact text |
 
 Operations: Load.
 
@@ -257,12 +257,12 @@ API path: `/api/v2/facts/random`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `language` |  |
-| `permalink` |  |
-| `source` |  |
-| `source_url` |  |
-| `text` |  |
+| `id` | Unique identifier for the fact |
+| `language` | Language code of the fact |
+| `permalink` | Permanent link to the fact |
+| `source` | Source of the fact |
+| `source_url` | URL to the fact source |
+| `text` | The useless fact text |
 
 Operations: Load.
 
@@ -287,12 +287,12 @@ Create an instance: `random = client.Random()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
-| `language` | `str` |  |
-| `permalink` | `str` |  |
-| `source` | `str` |  |
-| `source_url` | `str` |  |
-| `text` | `str` |  |
+| `id` | `str` | Unique identifier for the fact |
+| `language` | `str` | Language code of the fact |
+| `permalink` | `str` | Permanent link to the fact |
+| `source` | `str` | Source of the fact |
+| `source_url` | `str` | URL to the fact source |
+| `text` | `str` | The useless fact text |
 
 #### Example: Load
 
@@ -315,12 +315,12 @@ Create an instance: `today = client.Today()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
-| `language` | `str` |  |
-| `permalink` | `str` |  |
-| `source` | `str` |  |
-| `source_url` | `str` |  |
-| `text` | `str` |  |
+| `id` | `str` | Unique identifier for the fact |
+| `language` | `str` | Language code of the fact |
+| `permalink` | `str` | Permanent link to the fact |
+| `source` | `str` | Source of the fact |
+| `source_url` | `str` | URL to the fact source |
+| `text` | `str` | The useless fact text |
 
 #### Example: Load
 

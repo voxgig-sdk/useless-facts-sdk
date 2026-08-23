@@ -6,7 +6,7 @@ The Golang SDK for the UselessFacts API — an entity-oriented client using stan
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Random(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -259,12 +259,12 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"language"` |  |
-| `"permalink"` |  |
-| `"source"` |  |
-| `"source_url"` |  |
-| `"text"` |  |
+| `"id"` | Unique identifier for the fact |
+| `"language"` | Language code of the fact |
+| `"permalink"` | Permanent link to the fact |
+| `"source"` | Source of the fact |
+| `"source_url"` | URL to the fact source |
+| `"text"` | The useless fact text |
 
 Operations: Load.
 
@@ -274,12 +274,12 @@ API path: `/api/v2/facts/random`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"language"` |  |
-| `"permalink"` |  |
-| `"source"` |  |
-| `"source_url"` |  |
-| `"text"` |  |
+| `"id"` | Unique identifier for the fact |
+| `"language"` | Language code of the fact |
+| `"permalink"` | Permanent link to the fact |
+| `"source"` | Source of the fact |
+| `"source_url"` | URL to the fact source |
+| `"text"` | The useless fact text |
 
 Operations: Load.
 
@@ -304,12 +304,12 @@ Create an instance: `random := client.Random(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `language` | `string` |  |
-| `permalink` | `string` |  |
-| `source` | `string` |  |
-| `source_url` | `string` |  |
-| `text` | `string` |  |
+| `id` | `string` | Unique identifier for the fact |
+| `language` | `string` | Language code of the fact |
+| `permalink` | `string` | Permanent link to the fact |
+| `source` | `string` | Source of the fact |
+| `source_url` | `string` | URL to the fact source |
+| `text` | `string` | The useless fact text |
 
 #### Example: Load
 
@@ -336,12 +336,12 @@ Create an instance: `today := client.Today(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `language` | `string` |  |
-| `permalink` | `string` |  |
-| `source` | `string` |  |
-| `source_url` | `string` |  |
-| `text` | `string` |  |
+| `id` | `string` | Unique identifier for the fact |
+| `language` | `string` | Language code of the fact |
+| `permalink` | `string` | Permanent link to the fact |
+| `source` | `string` | Source of the fact |
+| `source_url` | `string` | URL to the fact source |
+| `text` | `string` | The useless fact text |
 
 #### Example: Load
 

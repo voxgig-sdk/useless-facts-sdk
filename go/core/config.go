@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "UselessFacts",
+			"slug": "useless-facts",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,26 +37,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the fact",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "language",
+						"short": "Language code of the fact",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "permalink",
+						"short": "Permanent link to the fact",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "source",
+						"short": "Source of the fact",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "source_url",
+						"short": "URL to the fact source",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "text",
+						"short": "The useless fact text",
 						"type": "`$STRING`",
 					},
 				},
@@ -115,26 +124,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the fact",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "language",
+						"short": "Language code of the fact",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "permalink",
+						"short": "Permanent link to the fact",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "source",
+						"short": "Source of the fact",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "source_url",
+						"short": "URL to the fact source",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "text",
+						"short": "The useless fact text",
 						"type": "`$STRING`",
 					},
 				},

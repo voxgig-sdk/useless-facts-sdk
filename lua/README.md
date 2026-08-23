@@ -226,12 +226,12 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `language` |  |
-| `permalink` |  |
-| `source` |  |
-| `source_url` |  |
-| `text` |  |
+| `id` | Unique identifier for the fact |
+| `language` | Language code of the fact |
+| `permalink` | Permanent link to the fact |
+| `source` | Source of the fact |
+| `source_url` | URL to the fact source |
+| `text` | The useless fact text |
 
 Operations: Load.
 
@@ -241,12 +241,12 @@ API path: `/api/v2/facts/random`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `language` |  |
-| `permalink` |  |
-| `source` |  |
-| `source_url` |  |
-| `text` |  |
+| `id` | Unique identifier for the fact |
+| `language` | Language code of the fact |
+| `permalink` | Permanent link to the fact |
+| `source` | Source of the fact |
+| `source_url` | URL to the fact source |
+| `text` | The useless fact text |
 
 Operations: Load.
 
@@ -271,12 +271,12 @@ Create an instance: `local random = client:Random(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `language` | `string` |  |
-| `permalink` | `string` |  |
-| `source` | `string` |  |
-| `source_url` | `string` |  |
-| `text` | `string` |  |
+| `id` | `string` | Unique identifier for the fact |
+| `language` | `string` | Language code of the fact |
+| `permalink` | `string` | Permanent link to the fact |
+| `source` | `string` | Source of the fact |
+| `source_url` | `string` | URL to the fact source |
+| `text` | `string` | The useless fact text |
 
 #### Example: Load
 
@@ -299,12 +299,12 @@ Create an instance: `local today = client:Today(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `language` | `string` |  |
-| `permalink` | `string` |  |
-| `source` | `string` |  |
-| `source_url` | `string` |  |
-| `text` | `string` |  |
+| `id` | `string` | Unique identifier for the fact |
+| `language` | `string` | Language code of the fact |
+| `permalink` | `string` | Permanent link to the fact |
+| `source` | `string` | Source of the fact |
+| `source_url` | `string` | URL to the fact source |
+| `text` | `string` | The useless fact text |
 
 #### Example: Load
 

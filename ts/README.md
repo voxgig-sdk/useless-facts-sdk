@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -286,12 +286,12 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `language` |  |
-| `permalink` |  |
-| `source` |  |
-| `source_url` |  |
-| `text` |  |
+| `id` | Unique identifier for the fact |
+| `language` | Language code of the fact |
+| `permalink` | Permanent link to the fact |
+| `source` | Source of the fact |
+| `source_url` | URL to the fact source |
+| `text` | The useless fact text |
 
 Operations: load.
 
@@ -301,12 +301,12 @@ API path: `/api/v2/facts/random`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `language` |  |
-| `permalink` |  |
-| `source` |  |
-| `source_url` |  |
-| `text` |  |
+| `id` | Unique identifier for the fact |
+| `language` | Language code of the fact |
+| `permalink` | Permanent link to the fact |
+| `source` | Source of the fact |
+| `source_url` | URL to the fact source |
+| `text` | The useless fact text |
 
 Operations: load.
 
@@ -331,12 +331,12 @@ Create an instance: `const random = client.Random()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `language` | `string` |  |
-| `permalink` | `string` |  |
-| `source` | `string` |  |
-| `source_url` | `string` |  |
-| `text` | `string` |  |
+| `id` | `string` | Unique identifier for the fact |
+| `language` | `string` | Language code of the fact |
+| `permalink` | `string` | Permanent link to the fact |
+| `source` | `string` | Source of the fact |
+| `source_url` | `string` | URL to the fact source |
+| `text` | `string` | The useless fact text |
 
 #### Example: Load
 
@@ -359,12 +359,12 @@ Create an instance: `const today = client.Today()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `language` | `string` |  |
-| `permalink` | `string` |  |
-| `source` | `string` |  |
-| `source_url` | `string` |  |
-| `text` | `string` |  |
+| `id` | `string` | Unique identifier for the fact |
+| `language` | `string` | Language code of the fact |
+| `permalink` | `string` | Permanent link to the fact |
+| `source` | `string` | Source of the fact |
+| `source_url` | `string` | URL to the fact source |
+| `text` | `string` | The useless fact text |
 
 #### Example: Load
 

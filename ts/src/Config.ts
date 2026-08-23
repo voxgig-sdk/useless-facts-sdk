@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'UselessFacts',
+        slug: "useless-facts",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,26 +70,32 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "short": "Unique identifier for the fact",
           "type": "`$STRING`"
         },
         {
           "name": "language",
+          "short": "Language code of the fact",
           "type": "`$STRING`"
         },
         {
           "name": "permalink",
+          "short": "Permanent link to the fact",
           "type": "`$STRING`"
         },
         {
           "name": "source",
+          "short": "Source of the fact",
           "type": "`$STRING`"
         },
         {
           "name": "source_url",
+          "short": "URL to the fact source",
           "type": "`$STRING`"
         },
         {
           "name": "text",
+          "short": "The useless fact text",
           "type": "`$STRING`"
         }
       ],
@@ -140,26 +157,32 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "short": "Unique identifier for the fact",
           "type": "`$STRING`"
         },
         {
           "name": "language",
+          "short": "Language code of the fact",
           "type": "`$STRING`"
         },
         {
           "name": "permalink",
+          "short": "Permanent link to the fact",
           "type": "`$STRING`"
         },
         {
           "name": "source",
+          "short": "Source of the fact",
           "type": "`$STRING`"
         },
         {
           "name": "source_url",
+          "short": "URL to the fact source",
           "type": "`$STRING`"
         },
         {
           "name": "text",
+          "short": "The useless fact text",
           "type": "`$STRING`"
         }
       ],

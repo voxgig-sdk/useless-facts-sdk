@@ -36,36 +36,42 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the fact",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "language",
               "req": false,
+              "short": "Language code of the fact",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "permalink",
               "req": false,
+              "short": "Permanent link to the fact",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "source",
               "req": false,
+              "short": "Source of the fact",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "source_url",
               "req": false,
+              "short": "URL to the fact source",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "text",
               "req": false,
+              "short": "The useless fact text",
               "type": "`$STRING`"
             }
           ],
@@ -142,36 +148,42 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the fact",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "language",
               "req": false,
+              "short": "Language code of the fact",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "permalink",
               "req": false,
+              "short": "Permanent link to the fact",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "source",
               "req": false,
+              "short": "Source of the fact",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "source_url",
               "req": false,
+              "short": "URL to the fact source",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "text",
               "req": false,
+              "short": "The useless fact text",
               "type": "`$STRING`"
             }
           ],
