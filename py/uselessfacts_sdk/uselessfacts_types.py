@@ -25,16 +25,8 @@ class Random(TypedDict, total=False):
     text: str
 
 
-class RandomLoadMatchRequired(TypedDict):
-    id: str
-
-
-class RandomLoadMatch(RandomLoadMatchRequired, total=False):
+class RandomLoadMatch(TypedDict, total=False):
     language: str
-    permalink: str
-    source: str
-    source_url: str
-    text: str
 
 
 class Today(TypedDict, total=False):
@@ -46,13 +38,5 @@ class Today(TypedDict, total=False):
     text: str
 
 
-class TodayLoadMatchRequired(TypedDict):
-    id: str
-
-
-class TodayLoadMatch(TodayLoadMatchRequired, total=False):
+class TodayLoadMatch(TypedDict, total=False):
     language: str
-    permalink: str
-    source: str
-    source_url: str
-    text: str

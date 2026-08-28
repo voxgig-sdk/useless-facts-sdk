@@ -15,12 +15,7 @@
 ---@field text? string
 
 ---@class RandomLoadMatch
----@field id string
 ---@field language? string
----@field permalink? string
----@field source? string
----@field source_url? string
----@field text? string
 
 ---@class Today
 ---@field id? string
@@ -31,12 +26,7 @@
 ---@field text? string
 
 ---@class TodayLoadMatch
----@field id string
 ---@field language? string
----@field permalink? string
----@field source? string
----@field source_url? string
----@field text? string
 
 local M = {}
 

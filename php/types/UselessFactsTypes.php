@@ -26,12 +26,7 @@ class Random
 /** Request payload for Random#load. */
 class RandomLoadMatch
 {
-    public string $id;
     public ?string $language = null;
-    public ?string $permalink = null;
-    public ?string $source = null;
-    public ?string $source_url = null;
-    public ?string $text = null;
 }
 
 /** Today entity data model. */
@@ -48,11 +43,6 @@ class Today
 /** Request payload for Today#load. */
 class TodayLoadMatch
 {
-    public string $id;
     public ?string $language = null;
-    public ?string $permalink = null;
-    public ?string $source = null;
-    public ?string $source_url = null;
-    public ?string $text = null;
 }
 

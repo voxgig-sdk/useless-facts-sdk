@@ -39,30 +39,10 @@ RandomType = Struct.new(
 
 # Request payload for Random#load.
 #
-# @!attribute [rw] id
-#   @return [String]
-#
 # @!attribute [rw] language
 #   @return [String, nil]
-#
-# @!attribute [rw] permalink
-#   @return [String, nil]
-#
-# @!attribute [rw] source
-#   @return [String, nil]
-#
-# @!attribute [rw] source_url
-#   @return [String, nil]
-#
-# @!attribute [rw] text
-#   @return [String, nil]
 RandomLoadMatch = Struct.new(
-  :id,
   :language,
-  :permalink,
-  :source,
-  :source_url,
-  :text,
   keyword_init: true
 )
 
@@ -97,30 +77,10 @@ Today = Struct.new(
 
 # Request payload for Today#load.
 #
-# @!attribute [rw] id
-#   @return [String]
-#
 # @!attribute [rw] language
 #   @return [String, nil]
-#
-# @!attribute [rw] permalink
-#   @return [String, nil]
-#
-# @!attribute [rw] source
-#   @return [String, nil]
-#
-# @!attribute [rw] source_url
-#   @return [String, nil]
-#
-# @!attribute [rw] text
-#   @return [String, nil]
 TodayLoadMatch = Struct.new(
-  :id,
   :language,
-  :permalink,
-  :source,
-  :source_url,
-  :text,
   keyword_init: true
 )
 

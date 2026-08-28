@@ -24,12 +24,7 @@ type Random struct {
 
 // RandomLoadMatch is the typed request payload for Random.LoadTyped.
 type RandomLoadMatch struct {
-	Id string `json:"id"`
 	Language *string `json:"language,omitempty"`
-	Permalink *string `json:"permalink,omitempty"`
-	Source *string `json:"source,omitempty"`
-	SourceUrl *string `json:"source_url,omitempty"`
-	Text *string `json:"text,omitempty"`
 }
 
 // Today is the typed data model for the today entity.
@@ -44,12 +39,7 @@ type Today struct {
 
 // TodayLoadMatch is the typed request payload for Today.LoadTyped.
 type TodayLoadMatch struct {
-	Id string `json:"id"`
 	Language *string `json:"language,omitempty"`
-	Permalink *string `json:"permalink,omitempty"`
-	Source *string `json:"source,omitempty"`
-	SourceUrl *string `json:"source_url,omitempty"`
-	Text *string `json:"text,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

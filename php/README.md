@@ -36,7 +36,7 @@ $client = new UselessFactsSDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the Random record (throws on error).
-    $random = $client->Random()->load(["id" => "example_id"]);
+    $random = $client->Random()->load();
     print_r($random);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $random = $client->Random()->load(["id" => "example_id"]);
+    $random = $client->Random()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -118,17 +118,14 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = UselessFactsSDK::test([
-    "entity" => ["random" => ["test01" => ["id" => "test01"]]],
-]);
+$client = UselessFactsSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$random = $client->Random()->load(["id" => "test01"]);
+$random = $client->Random()->load();
 print_r($random);
 ```
 
@@ -305,7 +302,7 @@ Create an instance: `$random = $client->Random();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Random record (throws on error).
-$random = $client->Random()->load(["id" => "random_id"]);
+$random = $client->Random()->load();
 ```
 
 
@@ -334,8 +331,31 @@ Create an instance: `$today = $client->Today();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Today record (throws on error).
-$today = $client->Today()->load(["id" => "today_id"]);
+$today = $client->Today()->load();
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -415,7 +435,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $random = $client->Random();
-$random->load(["id" => "example_id"]);
+$random->load();
 
 // $random->data_get() now returns the random data from the last load
 // $random->match_get() returns the last match criteria

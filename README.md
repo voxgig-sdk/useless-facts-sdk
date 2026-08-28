@@ -14,6 +14,10 @@ Metadata kindly supplied by [www.freepublicapis.com](https://www.freepublicapis.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI with an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
+> **Features:** `test` — opt-in,
+> inactive until switched on, and configured per client. See the Features
+> section of any SDK README below for what each one does.
+
 ## Entities, not endpoints
 
 This SDK exposes the API as a small set of **semantic entities** — Random and Today — that you
@@ -23,7 +27,7 @@ support (`load`):
 
 ```ts
 const client = new UselessFactsSDK()
-const random = await client.Random().load({ id: "example_id" })
+const random = await client.Random().load()
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -47,7 +51,7 @@ const client = UselessFactsSDK.test({
     },
   },
 })
-const random = await client.Random().load({ id: 'test01' })
+const random = await client.Random().load()
 // random is the Random entity, populated with mock data
 // — call random.data() for the record itself
 console.log(random)
@@ -57,7 +61,7 @@ console.log(random)
 
 ```python
 client = UselessFactsSDK.test()
-random = client.Random().load({"id": "test01"})
+random = client.Random().load()
 print(random)
 ```
 
@@ -66,9 +70,9 @@ print(random)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = UselessFactsSDK::test([
-    "entity" => ["random" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["random" => ["test01" => []]],
 ]);
-$random = $client->Random()->load(["id" => "test01"]);
+$random = $client->Random()->load();
 ```
 
 ### Golang
@@ -76,7 +80,7 @@ $random = $client->Random()->load(["id" => "test01"]);
 ```go
 client := sdk.Test()
 result, err := client.Random(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+    nil, nil,
 )
 ```
 
@@ -85,16 +89,16 @@ result, err := client.Random(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = UselessFactsSDK.test({
-  "entity" => { "random" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "random" => { "test01" => {} } },
 })
-random = client.Random.load({ "id" => "test01" })
+random = client.Random.load()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Random():load({ id = "test01" })
+local result, err = client:Random():load()
 ```
 
 ## Packages
@@ -179,7 +183,7 @@ client = UselessFactsSDK()
 
 
 # Load a specific random (returns the record, raises on error)
-random = client.Random().load({"id": "example_id"})
+random = client.Random().load()
 print(random)
 ```
 
@@ -193,7 +197,7 @@ $client = new UselessFactsSDK();
 
 
 // Load a specific random (returns the ENTITY; call data_get() for the record; throws on error)
-$random = $client->Random()->load(["id" => "example_id"]);
+$random = $client->Random()->load();
 print_r($random);
 ```
 
@@ -205,7 +209,7 @@ import sdk "github.com/voxgig-sdk/useless-facts-sdk/go"
 client := sdk.New()
 
 // Load random data
-random, err := client.Random(nil).Load(map[string]any{"id": "example_id"}, nil)
+random, err := client.Random(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -221,7 +225,7 @@ client = UselessFactsSDK.new
 
 
 # Load a specific random (returns the ENTITY; call data_get for the record)
-random = client.Random.load({ "id" => "example_id" })
+random = client.Random.load()
 puts random
 ```
 
@@ -234,7 +238,7 @@ local client = sdk.new()
 
 
 -- Load a specific random
-local random, err = client:Random():load({ id = "example_id" })
+local random, err = client:Random():load()
 print(random)
 ```
 
@@ -340,6 +344,32 @@ forking the SDK.
 | **TestFeature** | In-memory mock transport for testing without a live server |
 
 Pass custom features via the `extend` option at construction time.
+
+## Customizing this SDK
+
+This repository contains its own generator (`.sdk/`), so the SDK is
+customizable without forking any upstream tool:
+
+- **The model** (`.sdk/model/`) declares everything this project owns:
+  package names, versions, active features, per-target settings. It is
+  written in [aontu](https://github.com/aontu-lang/aontu), a JSON-based
+  specification language designed for building ontologies: easy to edit
+  by hand, and files unify rather than override, so small declarations
+  compose into one model. Regeneration re-reads it every time.
+- **Templates** (`.sdk/tm/`) and **components** (`.sdk/src/cmp/`) are
+  the two layers of generation, copied into this repo: templates are the
+  literal per-language source, components generate the API-shaped parts.
+- **Regeneration merges.** By default, newly generated content is
+  three-way merged into existing files, so generator updates and local
+  edits usually converge without manual conflict handling. A project can
+  opt for plain overwrite instead.
+- **Custom features and entire custom targets** arrive through sdkgen
+  packages (`voxgig-sdkgen package add`), on the same rails as the
+  bundled languages, and `voxgig-sdkgen doctor` reports any drift from
+  what a resync would write.
+
+How-to: [customize and propagate templates](https://github.com/voxgig/sdkgen/blob/main/docs/how-to/customize-and-propagate-templates.md).
+The full story: [voxgig.com/sdk/custom](https://voxgig.com/sdk/custom).
 
 ## Per-language documentation
 

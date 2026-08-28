@@ -39,7 +39,7 @@ const client = new UselessFactsSDK()
 
 ```ts
 try {
-  const random = await client.Random().load({ id: 'example_id' })
+  const random = await client.Random().load()
   console.log(random)
 } catch (err) {
   console.error('load failed:', err)
@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const random = await client.Random().load({ id: "example_id" })
+  const random = await client.Random().load()
   console.log(random)
 } catch (err) {
   console.error('load failed:', err)
@@ -120,7 +120,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = UselessFactsSDK.test()
 
-const random = await client.Random().load({ id: 'test01' })
+const random = await client.Random().load()
 // random is the entity, populated with mock response data
 // — call random.data() for the record itself
 console.log(random)
@@ -141,7 +141,7 @@ Entity instances remember their last match and data:
 const entity = client.Random()
 
 // First call runs the operation and stores its result
-await entity.load({ id: 'example' })
+await entity.load()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -341,7 +341,7 @@ Create an instance: `const random = client.Random()`
 #### Example: Load
 
 ```ts
-const random = await client.Random().load({ id: 'random_id' })
+const random = await client.Random().load()
 ```
 
 
@@ -369,8 +369,31 @@ Create an instance: `const today = client.Today()`
 #### Example: Load
 
 ```ts
-const today = await client.Today().load({ id: 'today_id' })
+const today = await client.Today().load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -443,10 +466,10 @@ calls on the same instance can rely on this state.
 
 ```ts
 const random = client.Random()
-await random.load({ id: "example_id" })
+await random.load()
 
 // random.data() now returns the random data from the last `load`
-// random.match() returns { id: "example_id" }
+// random.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration
