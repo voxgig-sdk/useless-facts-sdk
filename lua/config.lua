@@ -63,6 +63,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "random",
         ["op"] = {
           ["load"] = {
@@ -93,11 +97,19 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/facts/random",
-                ["parts"] = {
-                  "api",
-                  "v2",
-                  "facts",
-                  "random",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "v2",
+                  },
+                  {
+                    ["lit"] = "facts",
+                  },
+                  {
+                    ["lit"] = "random",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -108,6 +120,12 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "v2",
+                  "facts",
+                  "random",
                 },
               },
             },
@@ -150,6 +168,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "today",
         ["op"] = {
           ["load"] = {
@@ -180,11 +202,19 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/facts/today",
-                ["parts"] = {
-                  "api",
-                  "v2",
-                  "facts",
-                  "today",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "v2",
+                  },
+                  {
+                    ["lit"] = "facts",
+                  },
+                  {
+                    ["lit"] = "today",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -195,6 +225,12 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "v2",
+                  "facts",
+                  "today",
                 },
               },
             },

@@ -75,6 +75,10 @@ module UselessFactsConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "random",
           "op" => {
             "load" => {
@@ -105,11 +109,19 @@ module UselessFactsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/facts/random",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "facts",
-                    "random",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "facts",
+                    },
+                    {
+                      "lit" => "random",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -121,6 +133,12 @@ module UselessFactsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "facts",
+                    "random",
+                  ],
                 },
               ],
             },
@@ -162,6 +180,10 @@ module UselessFactsConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "today",
           "op" => {
             "load" => {
@@ -192,11 +214,19 @@ module UselessFactsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/facts/today",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "facts",
-                    "today",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "facts",
+                    },
+                    {
+                      "lit" => "today",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -208,6 +238,12 @@ module UselessFactsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "facts",
+                    "today",
+                  ],
                 },
               ],
             },

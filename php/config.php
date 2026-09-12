@@ -89,6 +89,10 @@ class UselessFactsConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'random',
           'op' => [
             'load' => [
@@ -119,11 +123,19 @@ class UselessFactsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v2/facts/random',
-                  'parts' => [
-                    'api',
-                    'v2',
-                    'facts',
-                    'random',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'v2',
+                    ],
+                    [
+                      'lit' => 'facts',
+                    ],
+                    [
+                      'lit' => 'random',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -134,6 +146,12 @@ class UselessFactsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'v2',
+                    'facts',
+                    'random',
                   ],
                 ],
               ],
@@ -176,6 +194,10 @@ class UselessFactsConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'today',
           'op' => [
             'load' => [
@@ -206,11 +228,19 @@ class UselessFactsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/v2/facts/today',
-                  'parts' => [
-                    'api',
-                    'v2',
-                    'facts',
-                    'today',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'v2',
+                    ],
+                    [
+                      'lit' => 'facts',
+                    ],
+                    [
+                      'lit' => 'today',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -221,6 +251,12 @@ class UselessFactsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'v2',
+                    'facts',
+                    'today',
                   ],
                 ],
               ],

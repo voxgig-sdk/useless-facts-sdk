@@ -67,6 +67,10 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "random",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -97,11 +101,19 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/facts/random",
-								"parts": []any{
-									"api",
-									"v2",
-									"facts",
-									"random",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "facts",
+									},
+									map[string]any{
+										"lit": "random",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -112,6 +124,12 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v2",
+									"facts",
+									"random",
 								},
 							},
 						},
@@ -154,6 +172,10 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "today",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -184,11 +206,19 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/facts/today",
-								"parts": []any{
-									"api",
-									"v2",
-									"facts",
-									"today",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "facts",
+									},
+									map[string]any{
+										"lit": "today",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -200,6 +230,12 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"api",
+									"v2",
+									"facts",
+									"today",
+								},
 							},
 						},
 					},
@@ -210,6 +246,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

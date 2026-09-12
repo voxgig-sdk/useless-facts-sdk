@@ -1,6 +1,14 @@
 # UselessFacts SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -84,6 +92,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "random",
         "op": {
           "load": {
@@ -114,11 +126,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/facts/random",
-                "parts": [
-                  "api",
-                  "v2",
-                  "facts",
-                  "random",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "facts",
+                  },
+                  {
+                    "lit": "random",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -130,6 +150,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "facts",
+                  "random",
+                ],
               },
             ],
           },
@@ -171,6 +197,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "today",
         "op": {
           "load": {
@@ -201,11 +231,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/facts/today",
-                "parts": [
-                  "api",
-                  "v2",
-                  "facts",
-                  "today",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "facts",
+                  },
+                  {
+                    "lit": "today",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -217,6 +255,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "facts",
+                  "today",
+                ],
               },
             ],
           },

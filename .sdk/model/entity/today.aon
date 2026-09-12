@@ -78,11 +78,19 @@ main: kit: entity: today: {
           }
           method: "GET"
           orig: "/api/v2/facts/today"
-          parts: [
-            "api"
-            "v2"
-            "facts"
-            "today"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "facts"
+            }
+            {
+              lit: "today"
+            }
           ]
           select: {
             exist: [
