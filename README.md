@@ -105,7 +105,7 @@ local result, err = client:Random():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/releases) |
+| TypeScript | `@voxgig-sdk/useless-facts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/releases) |
 | Python | `voxgig-sdk-useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/releases) |
 | PHP | `voxgig-sdk/useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/useless-facts-sdk/go` | `go get github.com/voxgig-sdk/useless-facts-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Random():load()
 ### TypeScript
 
 ```ts
-import { UselessFactsSDK } from '@voxgig-sdk/useless-facts'
+import { UselessFactsSDK } from '@voxgig-sdk/useless-facts-sdk'
 
 const client = new UselessFactsSDK()
 

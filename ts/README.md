@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { UselessFactsSDK } from '@voxgig-sdk/useless-facts'
+import { UselessFactsSDK } from '@voxgig-sdk/useless-facts-sdk'
 
 const client = new UselessFactsSDK()
 ```
@@ -455,7 +455,7 @@ useless-facts/
 Import the SDK from the package root:
 
 ```ts
-import { UselessFactsSDK } from '@voxgig-sdk/useless-facts'
+import { UselessFactsSDK } from '@voxgig-sdk/useless-facts-sdk'
 ```
 
 ### Entity state
