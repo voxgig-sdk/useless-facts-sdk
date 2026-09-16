@@ -1,12 +1,18 @@
 # UselessFacts SDK feature factory
 
 from uselessfacts_sdk.feature.base_feature import UselessFactsBaseFeature
+from uselessfacts_sdk.feature.ratelimit_feature import UselessFactsRatelimitFeature
+from uselessfacts_sdk.feature.retry_feature import UselessFactsRetryFeature
 from uselessfacts_sdk.feature.test_feature import UselessFactsTestFeature
+from uselessfacts_sdk.feature.timeout_feature import UselessFactsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: UselessFactsBaseFeature(),
+    "ratelimit": lambda: UselessFactsRatelimitFeature(),
+    "retry": lambda: UselessFactsRetryFeature(),
     "test": lambda: UselessFactsTestFeature(),
+    "timeout": lambda: UselessFactsTimeoutFeature(),
 }
 
 

@@ -76,6 +76,12 @@ main: kit: entity: today: {
               }
             ]
           }
+          contract: {
+            id: "GET /api/v2/facts/today"
+            json: "{\"operationId\":\"getTodayFact\",\"parameters\":[{\"description\":\"Language code for the fact\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"default\":\"en\",\"enum\":[\"en\",\"de\"],\"type\":\"string\"}},{\"description\":\"Response content type\",\"in\":\"header\",\"name\":\"Accept\",\"required\":false,\"schema\":{\"default\":\"application/json\",\"enum\":[\"application/json\",\"text/plain\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"id\":{\"description\":\"Unique identifier for the fact\",\"type\":\"string\"},\"language\":{\"description\":\"Language code of the fact\",\"type\":\"string\"},\"permalink\":{\"description\":\"Permanent link to the fact\",\"type\":\"string\"},\"source\":{\"description\":\"Source of the fact\",\"type\":\"string\"},\"source_url\":{\"description\":\"URL to the fact source\",\"type\":\"string\"},\"text\":{\"description\":\"The useless fact text\",\"type\":\"string\"}},\"type\":\"object\"}},\"text/plain\":{\"schema\":{\"description\":\"The useless fact as plain text\",\"type\":\"string\"}}},\"description\":\"Successful response with today's useless fact\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/v2/facts/today"
           segments: [
