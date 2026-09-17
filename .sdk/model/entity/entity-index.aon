@@ -1,4 +1,4 @@
 # Entity Models
 
-@"random.aon"
-@"today.aon"
+@"./random.aon"
+@"./today.aon"

@@ -105,12 +105,12 @@ local result, err = client:Random():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/useless-facts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/releases) |
-| Python | `voxgig-sdk-useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/releases) |
-| PHP | `voxgig-sdk/useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/releases) |
+| TypeScript | `@voxgig-sdk/useless-facts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/tags) |
+| Python | `voxgig-sdk-useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/tags) |
+| PHP | `voxgig-sdk/useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/useless-facts-sdk/go` | `go get github.com/voxgig-sdk/useless-facts-sdk/go@latest` |
-| Ruby | `voxgig-sdk-useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/releases) |
-| Lua | `voxgig-sdk-useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/releases) |
+| Ruby | `voxgig-sdk-useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/tags) |
+| Lua | `voxgig-sdk-useless-facts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useless-facts-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/useless-facts-sdk/go-cli` | `go install github.com/voxgig-sdk/useless-facts-sdk/go-cli/cmd/useless-facts@latest` |
 | Go MCP server | `github.com/voxgig-sdk/useless-facts-sdk/go-mcp` | `go get github.com/voxgig-sdk/useless-facts-sdk/go-mcp@latest` |
 
