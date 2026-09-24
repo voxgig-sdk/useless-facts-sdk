@@ -92,33 +92,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the fact",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the fact",
 					},
 					map[string]any{
 						"name": "language",
-						"short": "Language code of the fact",
+						"title": "Language",
 						"type": "`$STRING`",
+						"short": "Language code of the fact",
 					},
 					map[string]any{
 						"name": "permalink",
-						"short": "Permanent link to the fact",
+						"title": "Permalink",
 						"type": "`$STRING`",
+						"short": "Permanent link to the fact",
 					},
 					map[string]any{
 						"name": "source",
-						"short": "Source of the fact",
+						"title": "Source",
 						"type": "`$STRING`",
+						"short": "Source of the fact",
 					},
 					map[string]any{
 						"name": "source_url",
-						"short": "URL to the fact source",
+						"title": "Source Url",
 						"type": "`$STRING`",
+						"short": "URL to the fact source",
 					},
 					map[string]any{
 						"name": "text",
-						"short": "The useless fact text",
+						"title": "Text",
 						"type": "`$STRING`",
+						"short": "The useless fact text",
 					},
 				},
 				"id": map[string]any{
@@ -132,26 +138,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"header": []any{
-										map[string]any{
-											"example": "application/json",
-											"kind": "header",
-											"name": "accept",
-											"orig": "accept",
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": "en",
-											"kind": "query",
-											"name": "language",
-											"orig": "language",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/facts/random",
@@ -169,21 +155,42 @@ func MakeConfig() map[string]any {
 										"lit": "random",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"accept",
-										"language",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"v2",
 									"facts",
 									"random",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"header": []any{
+										map[string]any{
+											"name": "accept",
+											"orig": "accept",
+											"type": "`$STRING`",
+											"kind": "header",
+											"example": "application/json",
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "language",
+											"orig": "language",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "en",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"accept",
+										"language",
+									},
 								},
 							},
 						},
@@ -197,33 +204,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the fact",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the fact",
 					},
 					map[string]any{
 						"name": "language",
-						"short": "Language code of the fact",
+						"title": "Language",
 						"type": "`$STRING`",
+						"short": "Language code of the fact",
 					},
 					map[string]any{
 						"name": "permalink",
-						"short": "Permanent link to the fact",
+						"title": "Permalink",
 						"type": "`$STRING`",
+						"short": "Permanent link to the fact",
 					},
 					map[string]any{
 						"name": "source",
-						"short": "Source of the fact",
+						"title": "Source",
 						"type": "`$STRING`",
+						"short": "Source of the fact",
 					},
 					map[string]any{
 						"name": "source_url",
-						"short": "URL to the fact source",
+						"title": "Source Url",
 						"type": "`$STRING`",
+						"short": "URL to the fact source",
 					},
 					map[string]any{
 						"name": "text",
-						"short": "The useless fact text",
+						"title": "Text",
 						"type": "`$STRING`",
+						"short": "The useless fact text",
 					},
 				},
 				"id": map[string]any{
@@ -237,26 +250,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"header": []any{
-										map[string]any{
-											"example": "application/json",
-											"kind": "header",
-											"name": "accept",
-											"orig": "accept",
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": "en",
-											"kind": "query",
-											"name": "language",
-											"orig": "language",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/facts/today",
@@ -274,21 +267,42 @@ func MakeConfig() map[string]any {
 										"lit": "today",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"accept",
-										"language",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"v2",
 									"facts",
 									"today",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"header": []any{
+										map[string]any{
+											"name": "accept",
+											"orig": "accept",
+											"type": "`$STRING`",
+											"kind": "header",
+											"example": "application/json",
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "language",
+											"orig": "language",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "en",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"accept",
+										"language",
+									},
 								},
 							},
 						},
